@@ -3,17 +3,26 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily:{
+        nunito:"'Nunito', sans-serif",
+        ptSans:"'PT Sans',sans-serif"
+      },
       colors: {
-        bg: "#F9F9F9",
-        // green
-        primary: "#819A69",
-        // orange
-        secondary: "#E77960",
-        // light blue
-        tertiary: "#EBF3F6",
-        textGray: "#7E7E7E",
-        // textGray: "#8C8C8C",
-        bgGray: "#F2F4F5",
+       
+        //white //
+        bg:"#F6F5F5",
+        white:"#F0F0F0",
+        // yellow
+        darkYellow: "#F9C202",
+        lightYellow:"#F9C718",
+        //blue 
+        blue:"#162DA5",
+        // dark//
+        dark: "#050505",
+        bgDark:"#1B1919",
+        primaryDark:"rgba(14, 14, 14, 0.85)",
+        overlay:"rgba(5, 5, 5, 0.73)",
+        overlayPrimary:"rgba(4,4,4,0.75)",
       },
       screens: {
         sm: "640px",
