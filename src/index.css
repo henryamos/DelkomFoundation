@@ -72,7 +72,7 @@ header .container {
     top: 65px;
     left: 0;
     width: 100%;
-    height: 80vh;
+    height: 85vh;
     background-color: rgba(5, 5, 5, 0.85);
   
     z-index: 55;
@@ -84,7 +84,7 @@ header .container {
     gap: 30px;
   }
   header .mobile-view li:nth-child(1) {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 }
 .instructor .images {
@@ -98,3 +98,4 @@ header .container {
   cursor: pointer;
   opacity: 1;
 }
+
