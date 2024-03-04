@@ -13,7 +13,14 @@
 
 @layer components {
   .btn-primary{
-    @apply bg-primary text-white font-bold
+    @apply bg-darkYellow text-center text-dark font-nunito font-bold py-2 px-4 rounded-md;
+  }
+  .btn-outline{
+    @apply bg-transparent border-2 text-center border-darkYellow rounded-md text-darkYellow font-nunito font-bold py-2 px-4;
+  }
+  .btn-hover{
+    @apply hover:bg-darkYellow text-center border-darkYellow rounded-md text-dark font-nunito font-bold py-2 px-4;
+  
   }
 }
 
