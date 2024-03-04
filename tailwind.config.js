@@ -11,7 +11,7 @@ export default {
        
         //white //
         bg:"#F6F5F5",
-        white:"#F0F0F0",
+        primary:"#F0F0F0",
         // yellow
         darkYellow: "#F9C202",
         lightYellow:"#F9C718",
