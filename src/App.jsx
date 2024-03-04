@@ -30,7 +30,7 @@ function App() {
       }/>
 
       {/* Activities*/}
-      <Route path="/activties" element={
+      <Route path="/activities" element={
         <Layouts>
           <Activities/>
         </Layouts>
