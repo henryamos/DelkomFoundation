@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Logo from '../../public/assets/DelLogo.png';
+import Logo from '/assets/DelLogo.png';
 import { NavLink } from 'react-router-dom';
 import { LinkData } from './data/data';
 import { HiOutlineMenuAlt1, HiX } from 'react-icons/hi';
@@ -27,7 +27,7 @@ const Header = () => {
              {LinkData.map((link) => (
                <li className='font-nunito' key={link.id}>
                  <NavLink
-                   className={({ isActive }) => (isActive ? 'text-darkYellow text-sm  md:text-blue' : 'text-secondary hover:text-darkYellow  md:text-dark')}
+                   className={({ isActive }) => (isActive ? 'text-darkYellow hover:text-darkYellow  text-sm  md:text-blue' : 'text-secondary hover:text-blue md:text-dark')}
                    to={link.url}
                  >
                    {link.title}
