@@ -3,12 +3,17 @@ import backgroundImg1 from "/assets/delkom1.jpg";
 import backgroundImg2 from "/assets/Delkom7.jpg";
 import backgroundImg3 from "/assets/Delkom4.jpg";
 import backgroundImg4 from "/assets/Delkom8.jpg";
+import About from './About';
+import OurImpact from './OurImpact';
 
 
 const Home = () => {
   return (
     <>
       <HomeContent />
+      <About/>
+      <br />
+      <OurImpact/>
     </>
   );
 };
