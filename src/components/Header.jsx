@@ -14,12 +14,12 @@ const Header = () => {
   }
 
   return (
-    <header className='bg-white p-2 z-50 text-black w-full  sticky shadow-md'>
+    <header className='bg-white p-4 z-50 text-black w-full  sticky shadow-md'>
       <div className='flex justify-between items-center'> 
      
          {/* Logo */}
          <div className='logo flex items-center '>
-          <img className='h-10' src={Logo} alt="Delkom's Logo" />
+          <img className='h-12' src={Logo} alt="Delkom's Logo" />
          </div>
          {/* Nav Links */}
          <nav className='desktop-view'> {/* Render desktop view without animation */}
@@ -27,14 +27,14 @@ const Header = () => {
              {LinkData.map((link) => (
                <li className='font-nunito' key={link.id}>
                  <NavLink
-                   className={({ isActive }) => (isActive ? 'text-darkYellow hover:text-darkYellow  text-sm  md:text-blue' : 'text-secondary hover:text-blue md:text-dark')}
+                   className={({ isActive }) => (isActive ? 'text-dark   text-sm  md:text-blue' : 'text-secondary hover:text-blue md:text-dark')}
                    to={link.url}
                  >
                    {link.title}
                  </NavLink>
                </li>
              ))}
-             <button className='btn-primary font-nunito text-sm '>Join Us</button>
+             <button className='bg-dark text-primary hover:bg-darkYellow hover:text-dark px-4 py-3 rounded-lg font-bold'>Join Us</button>
            </ul>
          </nav>
          
@@ -48,18 +48,18 @@ const Header = () => {
                exit="closed"
                variants={variants}
              >
-               <ul className='flex items-center gap-6'>
+               <ul className='flex items-center text-xl gap-6'>
                  {LinkData.map((link) => (
                    <li className='font-nunito' onClick={() => setOpen(false)} key={link.id}>
                      <NavLink
-                       className={({ isActive }) => (isActive ? 'text-darkYellow text-sm  md:text-blue' : 'text-secondary hover:text-darkYellow  md:text-dark')}
+                       className={({ isActive }) => (isActive ? 'text-darkYellow  md:text-blue' : 'text-secondary hover:text-darkYellow  md:text-dark')}
                        to={link.url}
                      >
                        {link.title}
                      </NavLink>
                    </li>
                  ))}
-                 <button className='btn-primary font-nunito text-sm '>Join Us</button>
+                 <button className='bg-darkYellow text-dark px-4 py-3 rounded-lg font-bold '>Join Us</button>
                </ul>
              </motion.nav>
            )}

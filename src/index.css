@@ -13,10 +13,10 @@
 
 @layer components {
   .btn-primary{
-    @apply bg-darkYellow text-center text-dark font-nunito px-3 sm:px-8    py-2  sm:py-4 rounded-md hover:scale-95;
+    @apply bg-darkYellow text-center text-dark font-nunito px-3 sm:px-8    py-2  sm:py-4  md:px-12  md:py-5 md:font-bold  rounded-md hover:scale-95;
   }
   .btn-secondary{
-    @apply bg-secondary text-center text-dark font-nunito   px-3  sm:px-8   py-2  sm:py-4  rounded-md hover:scale-95;
+    @apply bg-secondary text-center text-dark font-nunito   px-3  sm:px-8   py-2  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
   }
   
 }
@@ -66,11 +66,11 @@ header .container {
   header .mobile-view {
     display: block;
     position: absolute;
-    top: 65px;
+    top: 85px;
     left: 0;
     width: 100%;
-    height: 85vh;
-    background-color: rgba(5, 5, 5, 0.90);
+    height: 100vh;
+    background-color: rgba(3, 3, 3, 0.96);
   
     z-index: 55;
 

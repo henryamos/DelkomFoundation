@@ -34,7 +34,7 @@ export const HomeContent = () => {
 
   return (
     <>
-      <section className='max-w-[1640px] mx-auto px-0.2'>
+      <section className='max-w-full mx-auto px-0.2'>
         <div className='max-h-[100vh] relative'>
           {/* Overlay */}
           <div className='absolute w-full h-full font-nunito text-primary max-h-[100vh] bg-dark/75 flex flex-col justify-center items-center'>
