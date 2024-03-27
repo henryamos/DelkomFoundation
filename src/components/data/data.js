@@ -1,3 +1,4 @@
+
 export const LinkData = [
     {
       id: 1,
@@ -31,4 +32,27 @@ export const LinkData = [
         title: "testimony",
         url: "/testimony",
       },
+]
+
+export const actvitiesData=[
+  {
+    id:1,
+    imgUrl:'/assets/Dede1.jpg',
+    title:'ICT TRAINING',
+    description:'Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools '
+  },
+  {
+    id:2,
+    imgUrl:'/assets/Delkom5.jpg',
+    title:'MENTORSHIP & EDUCATION',
+    description:'Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools '
+  
+  },
+  {
+    id:3,
+    imgUrl:'/assets/delkom6.jpg',
+    title:'DONATION',
+    description:'Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools '
+  
+  },
 ]

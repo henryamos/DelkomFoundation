@@ -39,7 +39,7 @@ export const HomeContent = () => {
           {/* Overlay */}
           <div className='absolute w-full h-full font-nunito text-primary max-h-[100vh] bg-dark/75 flex flex-col justify-center items-center'>
             <h1 className='text-center text-2xl sm:text-4xl font-bold md:text-5xl lg:text-6xl'>
-              Welcome to <span className='text-darkYellow'> DelKom Charity </span> <br /> Foundation
+              Welcome to <span className='text-darkYellow'> DelKom Charity </span> <br className='lg:hidden' /> Foundation
             </h1>
             <div className='space-x-5 space-y-6 sm:space-x-12 sm:space-y-12'>
               <button className='btn-primary text-sm'>Join us</button>
