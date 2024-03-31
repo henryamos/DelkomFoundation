@@ -35,6 +35,7 @@ For more information, don't hesitate to get in touch with us at:
 Email: contact@cDelkom Charity Foundation
 Phone: (123) 456-7890 <!-- Replace with your actual contact number -->
 Address: 123 Charity St., Kindness City, Goodwill State, 12345 <!-- Replace with your actual address -->
-![delkomFone-min](https://github.com/henryamos/DelkomFoundation/assets/55919712/33fd4ee3-7624-41d2-b49e-39f83179eb15)
-![DelkomMockUp-min](https://github.com/henryamos/DelkomFoundation/assets/55919712/4594d6fb-788c-4991-910b-2c8f699962fa)
+
+
+![delkomFone-min](https://github.com/henryamos/DelkomFoundation/assets/55919712/33fd4ee3-7624-41d2-b49e-39f83179eb15)![DelkomMockUp-min](https://github.com/henryamos/DelkomFoundation/assets/55919712/4594d6fb-788c-4991-910b-2c8f699962fa)
 
