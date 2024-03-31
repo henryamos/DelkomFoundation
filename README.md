@@ -1,4 +1,4 @@
-Charity Home Project
+Delkom Foundation
   `public/assets/DelkomMockUp-min.jpeg` 
   `public/assets/DelkomMockUp-min.jpeg` 
 '
