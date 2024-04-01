@@ -14,7 +14,7 @@ const About = () => {
       {/* Mobile & Tablet Section - Visible on screens smaller than 'lg' */}
       <section className='mx-auto px-4 mt-16 lg:hidden w-full'>
         <div className='mt-8'>
-          <h2 className='text-center text-nunito font-bold text-2xl'>About Us</h2>
+          <h2 className='text-center text-nunito font-bold text-3xl'>About Us</h2>
         </div>
         <div className='mt-4'>
           <img className='w-full object-cover max-h-[60vh] p-1 mx-auto rounded-xl ' src={backgroundImg1} alt="Delkom Charity Foundation" />

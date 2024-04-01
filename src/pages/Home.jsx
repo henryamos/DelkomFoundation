@@ -5,15 +5,20 @@ import backgroundImg3 from "/assets/Delkom4.jpg";
 import backgroundImg4 from "/assets/Delkom8.jpg";
 import About from './About';
 import OurImpact from './OurImpact';
+import Activities from './Activities';
+import Team from './Team';
 
 
 const Home = () => {
   return (
     <>
       <HomeContent />
+      <br />
       <About/>
       <br />
+      <Activities/>
       <OurImpact/>
+     <Team/>
     </>
   );
 };
@@ -27,7 +32,7 @@ export const HomeContent = () => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000); // Change image every 5 seconds (adjust as needed)
+    }, 5000); // Change image every 5 seconds (adjust as needed)
 
     return () => clearInterval(interval);
   }, []);
