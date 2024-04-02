@@ -1,8 +1,13 @@
 import React from 'react'
+import HumanityServiceCard from '../components/HumanityService';
 
 const OurImpact = () => {
   return (
-    <div>Our Impact</div>
+    <section className='mx-auto px-4 mt-16 h-[500px]'>
+
+      <HumanityServiceCard/>
+    </section>
+    
   )
 }
 
