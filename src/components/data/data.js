@@ -43,16 +43,23 @@ export const actvitiesData=[
   },
   {
     id:2,
-    imgUrl:'/assets/Delkom5.jpg',
+    imgUrl:'/assets/DelEdu.jpg',
     title:'MENTORSHIP & EDUCATION',
     description:'Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools '
   
   },
   {
     id:3,
-    imgUrl:'/assets/delkom6.jpg',
+    imgUrl:'/assets/Delkom11.jpg',
     title:'DONATION',
     description:'Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools '
   
   },
+  {
+    id:4,
+    imgUrl:'/assets/Delkom13.jpg',
+    title:'CREATIVITY & SKILLS DEVELOPMENT',
+    description:'Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools '
+  
+  }
 ]

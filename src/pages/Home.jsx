@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import backgroundImg1 from "/assets/delkom1.jpg";
 import backgroundImg2 from "/assets/Delkom7.jpg";
 import backgroundImg3 from "/assets/Delkom4.jpg";
-import backgroundImg4 from "/assets/Delkom8.jpg";
+import backgroundImg4 from "/assets/Delkom10.jpg";
 import About from './About';
 import OurImpact from './OurImpact';
 import Activities from './Activities';
@@ -32,7 +32,7 @@ export const HomeContent = () => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Change image every 5 seconds (adjust as needed)
+    }, 3000); // Change image every 5 seconds (adjust as needed)
 
     return () => clearInterval(interval);
   }, []);
