@@ -3,8 +3,8 @@ import { actvitiesData } from '../components/data/data';
 
 const Activities = () => {
   return (
-    <section className='mx-auto px-2 mt-16  w-full'>
-      <h2 className='text-center text-nunito font-bold text-3xl mb-8'>Our Activities</h2>
+    <section className='mx-auto px-2 mt-16  w-full bg-primary'>
+      <h2 className='text-center text-nunito font-bold text-3xl mb-8'>Out Reach <span className='text-darkYellow'>Activities</span> </h2>
        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 text-ptSans'>
       {actvitiesData.map((activity)=>(
          <div className=' shadow-xl rounded-lg pt-6 hover:scale-95 duration-300' key={activity.id}>

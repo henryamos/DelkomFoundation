@@ -12,11 +12,11 @@ const About = () => {
   return (
     <>
       {/* Mobile & Tablet Section - Visible on screens smaller than 'lg' */}
-      <section className='mx-auto px-4 mt-16 lg:hidden w-full'>
-        <div className='mt-8'>
-          <h2 className='text-center text-nunito font-bold text-3xl'>About Us</h2>
+      <section className='mx-auto px-4    lg:hidden w-full bg-primaryBase'>
+        <div className=' mb-8' >
+          <h2 className='text-center  text-nunito font-bold text-3xl'>About <span className='text-darkYellow'>Us</span> </h2>
         </div>
-        <div className='mt-4'>
+        <div className=''>
           <img className='w-full object-cover max-h-[60vh] p-1 mx-auto rounded-xl ' src={backgroundImg1} alt="Delkom Charity Foundation" />
           <div className='text-ptSans p-2 mx-auto text-xl leading-loose' onClick={toggleReveal}>
             {revealed ? (

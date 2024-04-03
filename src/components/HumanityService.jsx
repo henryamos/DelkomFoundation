@@ -1,39 +1,39 @@
 import React from 'react'
-
-const HumanityServiceCard = ({title,description}) => {
+import backgroundImg1 from '/assets/Delkom9.jpg';
+import booking from '../assets/map_school.svg';
+import clothing from '../assets/game-icons_clothes.svg';
+import food from '../assets/fluent_food-24-filled.svg'
+const HumanityServiceCard = () => {
   return (
-    <div className="flex flex-col items-center p-4 bg-white shadow-lg rounded-lg">
-      {/* <div className="text-yellow-500">{icon}</div> */}
-      <h3 className="mt-2 text-lg font-bold">{title}</h3>
-      <p className="text-sm text-gray-600">{description}</p>
+    <div className="w-full mx-auto  h-[550px]   bg-bgDark ">
+
+      <div className='h-[500px] relative'>
+        <h2 className='text-center text-primary'>Our <span className='text-darkYellow'>Humanity Service</span> </h2>
+        <div className='absolute w-full   font-nunito text-primaryBase h-[500px] bg-dark/80 flex flex-col justify-center items-center md:flex-row md:justify-around'>
+            
+            {/* Food Icons */}
+            <div className='flex flex-col  w-1/2  justify-center items-center'>
+            <img  className='w-12 md:w-24' src={food} alt="" />
+            <h3 className='font-normal text-lg md:font-bold md:text-2xl mt-4 mb-4'>Charity For Food</h3>
+            <p className='text-center'>Our members volunteer to support and  <br className='hidden md:block' /> educate young children residing in rural areas</p>
+            </div>
+              {/*  Icons */}
+            <div className='flex flex-col  w-1/2  justify-center items-center'>
+            <img className='w-12 md:w-24' src={clothing} alt="" />
+            <h3 className='font-normal text-lg md:font-bold md:text-2xl mt-4 mb-4'>Charity For Clothes</h3>
+            <p className='text-center'>Our members volunteer to support and <br />  educate young children residing in rural areas</p>
+           </div>
+           <div className='flex flex-col  w-1/2  justify-center items-center'>
+            <img className='w-12 md:w-24' src={booking} alt="" />
+            <h3 className='font-normal md:font-bold text-md md:text-2xl mt-4 mb-4'>Charity For Education</h3>
+            <p className='text-center'>Our members volunteer to support and <br />  educate young children residing in rural areas</p>
+            </div>
+           
+        </div>
+        <img className='w-full h-[500px] object-cover' src={backgroundImg1} alt="" />
+      </div>
     </div>
   )
 }
-const HumanityService = () => {
-  return (
-    <div className=" bg-cover bg-center text-white py-12" style={{ backgroundImage: 'url(/assets/Delkom5.jpg)' }}>
-      <div className="container mx-auto px-4">
-        <div className="text-4xl font-bold mb-6">Our Services To Humanity</div>
-        <div className="flex justify-around">
-          <HumanityService
-            // icon={<i className="fas fa-book"></i>} 
-            title="Charity For Education" 
-            description="Our members volunteer to support and educate young children residing in rural areas" 
-          />
-          <HumanityService
-            icon={<i className="fas fa-utensils"></i>} 
-            title="Charity For Food" 
-            description="Our members volunteer to support and educate young children residing in rural areas" 
-          />
-          <HumanityService
-            // icon={<i className="fas fa-tshirt"></i>} 
-            title="Charity For Clothes" 
-            description="Our members volunteer to support and educate young children residing in rural areas" 
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default HumanityServiceCard

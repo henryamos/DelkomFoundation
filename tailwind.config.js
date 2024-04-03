@@ -14,6 +14,8 @@ export default {
         //white //
         secondary:"#F6F5F5",
         primary:"#F0F0F0",
+        primaryBase:"#FDFDFD",
+      
         // yellow
         darkYellow: "#F9C202",
         lightYellow:"#F9C718",
