@@ -63,3 +63,27 @@ export const actvitiesData=[
   
   }
 ]
+
+
+export const HumanServiceData=[
+  {
+    id:1,
+    imgUrl:'/assets/fluent_food-24-filled.svg',
+    title:'Charity For Food',
+    description:'Our members volunteer to support and educate young children residing in rural areas '
+  },
+  {
+    id:2,
+    imgUrl:'/assets/game-icons_clothes.svg',
+    title:'Charity For Clothes',
+    description:'Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools '
+  
+  },
+  {
+    id:3,
+    imgUrl:'/assets/map_school.svg',
+    title:'DONATION',
+    description:'Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools '
+  
+  }
+]

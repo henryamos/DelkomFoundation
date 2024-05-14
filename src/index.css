@@ -18,6 +18,11 @@
   .btn-secondary{
     @apply bg-secondary text-center text-dark font-nunito   px-3  sm:px-8   py-2  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
   }
+
+  
+  .btn-outline{
+    @apply bg-transparent  text-center text-white border border-white font-nunito   px-3  sm:px-8   py-2  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
+  }
   
 }
 
@@ -52,7 +57,7 @@ header .open-menu {
   display: none;
 }
 header .container {
-  max-width: 80%;
+ 
 }
 
 /*--------- header-------------*/

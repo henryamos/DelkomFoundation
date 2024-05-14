@@ -14,11 +14,11 @@ const Header = () => {
   }
 
   return (
-    <header className='bg-white p-4 z-50 text-black w-full  sticky shadow-md'>
-      <div className='flex justify-between items-center'> 
+    <header className='sticky z-50 w-full p-4 text-black bg-white shadow-md h-[80px]'>
+      <div className='flex items-center justify-between w-[90%] md:w-[80%] mx-auto'> 
      
          {/* Logo */}
-         <div className='logo flex items-center '>
+         <div className='flex items-center logo '>
           <img className='h-12' src={Logo} alt="Delkom's Logo" />
          </div>
          {/* Nav Links */}
@@ -34,21 +34,41 @@ const Header = () => {
                  </NavLink>
                </li>
              ))}
-             <button className='bg-dark text-primary hover:bg-darkYellow hover:text-dark px-4 py-3 rounded-lg font-bold'>Join Us</button>
+             <button className='px-4 py-3 font-bold rounded-lg bg-dark text-primary hover:bg-darkYellow hover:text-dark'>Join Us</button>
            </ul>
          </nav>
-         
+          {/* Menu Button */}
+          <div className='block lg:hidden'>
+          
+          <button>
+            {open ? (
+              <HiX
+              className='close-menu'
+              onClick={() => setOpen(false)}
+              size={25}
+              />
+             ) : (
+               <HiOutlineMenuAlt1
+               className='open-menu'
+               onClick={() => setOpen(true)}
+               size={25}
+               />
+             )}
+          </button>
+         </div> 
+      </div>
+       
          {/* Mobile View with Framer Motion animation */}
          <AnimatePresence>
            {open && (
              <motion.nav
-               className='mobile-view'
+               className='hidden mobile-view lg:block'
                initial="closed"
                animate="open"
                exit="closed"
                variants={variants}
              >
-               <ul className='flex items-center text-xl gap-6'>
+               <ul className='flex items-center gap-6 text-xl'>
                  {LinkData.map((link) => (
                    <li className='font-nunito' onClick={() => setOpen(false)} key={link.id}>
                      <NavLink
@@ -59,31 +79,13 @@ const Header = () => {
                      </NavLink>
                    </li>
                  ))}
-                 <button className='bg-darkYellow text-dark px-4 py-3 rounded-lg font-bold '>Join Us</button>
+                 <button className='px-4 py-3 font-bold rounded-lg bg-darkYellow text-dark '>Join Us</button>
                </ul>
              </motion.nav>
            )}
          </AnimatePresence>
-         
-         {/* Menu Button */}
-         <button>
-           {open ? (
-             <HiX
-               className='close-menu'
-               onClick={() => setOpen(false)}
-               size={25}
-             />
-           ) : (
-             <HiOutlineMenuAlt1
-               className='open-menu'
-               onClick={() => setOpen(true)}
-               size={25}
-             />
-           )}
-         </button>
-         
-      </div>
     </header>
+    
   );
 }
 

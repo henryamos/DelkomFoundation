@@ -3,7 +3,7 @@ import HumanityServiceCard from '../components/HumanityService';
 
 const OurImpact = () => {
   return (
-    <section className='mx-auto px-4 mt-16 h-[500px]'>
+    <section className='px-4 mx-auto mt-16 '>
 
       <HumanityServiceCard/>
     </section>
