@@ -48,7 +48,7 @@ const About = () => {
         </div>
         <div className='xl:col-span-7 lg:min-h-[400px] flex flex-col justify-center'>
           <h2 className='text-4xl font-bold text-center text-nunito'>About Us</h2>
-          <p className='mt-2 text-xl leading-relaxed text-ptSans'>
+          <p className='mt-2 text-xl leading-relaxed text-ptSans capitalize-none'>
             Delkom Charity Foundation is a duly registered non-governmental organization based in Ghana, with the aim of fostering a brighter future for individuals through collaborative efforts to empower and assist young, energetic children residing in rural communities. Our targeted age group ranges from 6 to 16 years old.
             At the core of our programs, we prioritize various initiatives designed to make a positive impact in the lives of these children. This includes the provision of essential school supplies, comprehensive ICT and digital training, opportunities for creative writing and crafting, empowerment activities, Mentorship programs, and coaching sessions.
           </p>
