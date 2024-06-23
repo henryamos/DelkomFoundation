@@ -8,7 +8,7 @@ const HumanityServiceCard = () => {
   return (
     <div className="relative w-full h-screen md:h-[50vh] bg-bgDark">
       <img className="absolute inset-0 object-cover w-full h-full" src={backgroundImg1} alt="Background" />
-      <div className="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-90">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-80">
         <h2 className="text-2xl font-bold text-center text-white md:text-5xl mb-4 md:mb-14">
           Our <span className="text-darkYellow">Services To Humanity</span>
         </h2>
