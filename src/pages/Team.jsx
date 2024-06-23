@@ -1,8 +1,11 @@
 import React from 'react'
+import TeamCard from '../components/TeamCard';
 
 const Team = () => {
   return (
-    <div>Team</div>
+    <section className='px-4 mx-auto '>
+      <TeamCard/>
+    </section>
   )
 }
 
