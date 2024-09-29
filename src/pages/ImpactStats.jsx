@@ -1,8 +1,8 @@
-import React from 'react';
+
 
 const ImpactStats = () => {
   return (
-    <div className="bg-black bg-opacity-80  py-6 md:py-12">
+    <div className="bg-black bg-opacity-80   py-6 md:py-12">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-2xl  font-bold text-white md:text-4xl mb-8">
           How We Make <span className="text-darkYellow">Difference</span>

@@ -1,4 +1,4 @@
-import React from 'react';
+ 
 import backgroundImg1 from '/assets/Delkom9.jpg';
 import booking from '../assets/map_school.svg';
 import clothing from '../assets/game-icons_clothes.svg';
@@ -6,10 +6,10 @@ import food from '../assets/fluent_food-24-filled.svg';
 
 const HumanityServiceCard = () => {
   return (
-    <div className="relative w-full h-screen md:h-[50vh] bg-bgDark">
+    <div className="relative w-full h-screen md:h-[70vh] bg-bgDark">
       <img className="absolute inset-0 object-cover w-full h-full" src={backgroundImg1} alt="Background" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-80">
-        <h2 className="text-2xl font-bold text-center text-white md:text-5xl mb-4 md:mb-14">
+        <h2 className="text-2xl font-bold text-center text-white md:text-5xl mt-8 mb-4 md:mb-14">
           Our <span className="text-darkYellow">Services To Humanity</span>
         </h2>
         <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto space-y-6 px-4 md:flex-row md:justify-between    md:space-y-0  lg:space-x-24

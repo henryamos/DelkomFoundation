@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import backgroundImg1 from "/assets/delkom1.jpg";
 import backgroundImg2 from "/assets/Delkom7.jpg";
 import backgroundImg3 from "/assets/Delkom4.jpg";
@@ -36,16 +36,26 @@ export const HomeContent = () => {
 
   return (
     <>
-      <section className='h-[80vh]  lg:h-[90vh]  w-screen'>
-        <div style={{backgroundImage:'url('+images[currentImageIndex]+')'}} className='w-full h-full bg-cover'>
-          <div className='flex flex-col items-center justify-center min-h-full font-nunito text-primary bg-dark/75 '>
-            <h1 className='text-[3rem] leading-[1.1] font-bold text-center sm:text-3xl md:text-5xl lg:text-[5rem]'>
-              Welcome to <span className='text-darkYellow'> DelKom Charity </span>  Foundation
+      <section className="h-[80vh]  lg:h-[100vh] w-screen  ">
+        <div
+          style={{ backgroundImage: "url(" + images[currentImageIndex] + ")" }}
+          className="w-full h-full bg-cover"
+        >
+          <div className="flex flex-col items-center justify-center min-h-full font-nunito text-primary bg-dark/75 ">
+            <h1 className="text-[2.5rem] leading-[1.1] font-bold text-center sm:text-3xl md:text-5xl lg:text-[5rem]">
+              Welcome to{" "}
+              <span className="text-darkYellow"> DelKom Charity </span>{" "}
+              Foundation
             </h1>
-            <p className='w-[90%] lg:w-[80%] mx-auto text-center pt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ipsam voluptatem eius odit, dolorem vero.</p>
-            <div className='space-x-5 space-y-6 sm:space-x-12 sm:space-y-12'>
-              <button className='text-sm btn-primary'>Join us</button>
-              <button className='text-sm btn-outline'>Donate</button>
+            <p className="w-[90%] lg:w-[80%] mx-auto text-center leading-7 pt-4">
+              Our mission is to empower children in
+              deprived communities through practical ICT/IT training, creative
+              writing and crafting, Mentorship, and supporting them with
+              educational stationery.
+            </p>
+            <div className="space-x-5 space-y-6 sm:space-x-12 sm:space-y-12">
+              <button className="text-sm btn-primary">Join us</button>
+              <button className="text-sm btn-outline">Donate</button>
             </div>
           </div>
         </div>

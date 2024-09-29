@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import backgroundImg1 from "/assets/delkom1.jpg";
-import backgroundImg2 from "/assets/delkom2.jpg";
 
 const About = () => {
   const [revealed, setRevealed] = useState(true); // Start with the text revealed
@@ -39,11 +38,11 @@ const About = () => {
       </section>
 
       {/* Desktop Section - Visible on screens 'lg' and larger */}
-      <section className=' bg-secondary hidden lg:block  w-full min-h-[600px]  mt-16'>
+      <section className=' bg-secondary hidden  lg:block  w-full min-h-[600px]  mt-16'>
         <div className='w-[80%] lg:w-[90%] mx-auto lg:grid lg:grid-cols-1 xl:grid-cols-12 gap-6'>
-        <div className='xl:col-span-5 lg:min-h-[400px] flex justify-center items-center relative'>
-          <img className='h-auto max-w-full p-1 rounded-xl' src={backgroundImg1} alt="Delkom Charity Foundation" />
-          <img className='max-w-full h-[40%] p-1 rounded-xl absolute top-1/2 right-1/4 ' src={backgroundImg2} alt="Delkom Charity Foundation" />
+        <div className='xl:col-span-5 lg:min-h-[600px] flex justify-center items-center'>
+          <img className='h-auto max-w-full mt-4  rounded-xl' src={backgroundImg1} alt="Delkom Charity Foundation" />
+          {/* <img className='max-w-full h-[40%] p-1 rounded-xl absolute top-1/2 right-1/4 ' src={backgroundImg2} alt="Delkom Charity Foundation" /> */}
         
         </div>
         <div className='xl:col-span-7 lg:min-h-[400px] flex flex-col justify-center'>
