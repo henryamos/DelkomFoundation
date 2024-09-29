@@ -91,7 +91,7 @@ export const teamData = [
   {
     id: 1,
     name: "Benjamin Heny Amos",
-    role: "Front-End Engineer",
+    role: "Software Developer",
     imgUrl: "/assets/ben.jpg",
     socialLinks: {
       linkedin: "https://linkedin.com",
@@ -103,7 +103,7 @@ export const teamData = [
     id: 2,
     name: "Adelaide Dede Abaidoo",
     role: "President",
-    imgUrl: "/assets/ben.jpg",
+    imgUrl: "/src/assets/img/Dede.jpg",
     socialLinks: {
       linkedin: "https://linkedin.com",
       instagram: "https://instagram.com",
@@ -114,7 +114,7 @@ export const teamData = [
     id: 3,
     name: "Amatus Konkani Akoto",
     role: "Vice-President",
-    imgUrl: "/assets/ben.jpg",
+    imgUrl: "/src/assets/img/VIcePresident.jpg",
     socialLinks: {
       linkedin: "https://linkedin.com",
       instagram: "https://instagram.com",
@@ -124,8 +124,8 @@ export const teamData = [
   {
     id: 4,
     name: "Amatus Konkani Akoto",
-    role: "Vice-President",
-    imgUrl: "/assets/ben.jpg",
+    role: "Secretary",
+    imgUrl: "/src/assets/img/FairLady.jpg",
     socialLinks: {
       linkedin: "https://linkedin.com",
       instagram: "https://instagram.com",
@@ -136,55 +136,12 @@ export const teamData = [
     id: 5,
     name: "Amatus Konkani Akoto",
     role: "Vice-President",
-    imgUrl: "/assets/ben.jpg",
+    imgUrl: "/src/assets/img/Guy.jpg",
     socialLinks: {
       linkedin: "https://linkedin.com",
       instagram: "https://instagram.com",
       twitter: "https://twitter.com",
     },
   },
-  {
-    id: 6,
-    name: "Amatus Konkani Akoto",
-    role: "Vice-President",
-    imgUrl: "/assets/ben.jpg",
-    socialLinks: {
-      linkedin: "https://linkedin.com",
-      instagram: "https://instagram.com",
-      twitter: "https://twitter.com",
-    },
-  },
-  {
-    id: 7,
-    name: "Amatus Konkani Akoto",
-    role: "Vice-President",
-    imgUrl: "/assets/ben.jpg",
-    socialLinks: {
-      linkedin: "https://linkedin.com",
-      instagram: "https://instagram.com",
-      twitter: "https://twitter.com",
-    },
-  },
-  {
-    id: 8,
-    name: "Amatus Konkani Akoto",
-    role: "Vice-President",
-    imgUrl: "/assets/ben.jpg",
-    socialLinks: {
-      linkedin: "https://linkedin.com",
-      instagram: "https://instagram.com",
-      twitter: "https://twitter.com",
-    },
-  },
-  {
-    id: 9,
-    name: "Amatus Konkani Akoto",
-    role: "Vice-President",
-    imgUrl: "/assets/ben.jpg",
-    socialLinks: {
-      linkedin: "https://linkedin.com",
-      instagram: "https://instagram.com",
-      twitter: "https://twitter.com",
-    },
-  },
+  
 ];

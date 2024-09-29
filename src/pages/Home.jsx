@@ -39,7 +39,7 @@ export const HomeContent = () => {
       <section className='h-[80vh]  lg:h-[90vh]  w-screen'>
         <div style={{backgroundImage:'url('+images[currentImageIndex]+')'}} className='w-full h-full bg-cover'>
           <div className='flex flex-col items-center justify-center min-h-full font-nunito text-primary bg-dark/75 '>
-            <h1 className='text-[3rem] leading-[1.1] font-bold text-center sm:text-4xl md:text-5xl lg:text-[6rem]'>
+            <h1 className='text-[3rem] leading-[1.1] font-bold text-center sm:text-3xl md:text-5xl lg:text-[5rem]'>
               Welcome to <span className='text-darkYellow'> DelKom Charity </span>  Foundation
             </h1>
             <p className='w-[90%] lg:w-[80%] mx-auto text-center pt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ipsam voluptatem eius odit, dolorem vero.</p>
