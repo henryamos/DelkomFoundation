@@ -42,7 +42,7 @@ export const HomeContent = () => {
           className="w-full h-full bg-cover"
         >
           <div className="flex flex-col items-center justify-center min-h-full font-nunito text-primary bg-dark/75 ">
-            <h1 className="text-[2.5rem] leading-[1.1] font-bold text-center sm:text-3xl md:text-5xl lg:text-[5rem]">
+            <h1 className="text-[2.5rem] leading-[1.1] font-bold text-center sm:text-3xl md:text-5xl lg:text-[3.5rem]">
               Welcome to{" "}
               <span className="text-darkYellow"> DelKom Charity </span>{" "}
               Foundation
