@@ -9,6 +9,7 @@ import About from './About';
 import OurImpact from './OurImpact';
 import Activities from './Activities';
 import Team from './Team';
+import DonationPage from './DonationPage';
  const config = {
    reference: new Date().getTime().toString(),
    email: "user@example.com",
@@ -24,6 +25,7 @@ const Home = () => {
       <About/>
       <Activities/>
       <OurImpact/>
+      <DonationPage/>
      <Team/>
     </>
   );
