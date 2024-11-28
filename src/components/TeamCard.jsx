@@ -28,7 +28,7 @@ const TeamCard = () => {
   };
 
   return (
-    <div className="relative w-full bg-dark mt-8 bg-opacity-90 mx-auto py-8">
+    <div className="relative w-full bg-dark  bg-opacity-90  py-8">
       <h2 className="text-2xl font-bold text-center text-white md:text-3xl mb-8">
         Meet Our <span className="text-darkYellow">Team</span>
       </h2>

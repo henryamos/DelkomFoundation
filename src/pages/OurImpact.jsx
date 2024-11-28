@@ -3,7 +3,7 @@ import ImpactStats from './ImpactStats';
 
 const OurImpact = () => {
   return (
-    <section className='px-4 mx-auto mt-6  '>
+    <section className='   '>
 
       <HumanityServiceCard />
       <ImpactStats/>

@@ -1,17 +1,23 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
+import Hero from './Hero';
 
-import Header from './Header'
-import Footer from './Footer'
+const Layouts = ({ children }) => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
-const Layouts = ({children}) => {
   return (
-   <>
-   <Header/>
-   <main className=''>
-    {children} 
-  </main>
-   <Footer/>
-   </>
-  )
+    <>
+      {!isHomePage && <Header />}
+      {isHomePage && <Hero />}
+      <main className=''>
+        {children}
+      </main>
+      <Footer />
+    </>
+  );
 }
 
-export default Layouts
+export default Layouts;

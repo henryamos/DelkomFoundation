@@ -13,8 +13,9 @@
   }  
  /* Custom scrollbar styling */
  ::-webkit-scrollbar {
-  width: 12px; /* Width of the vertical scrollbar */
-  height: 12px; /* Height of the horizontal scrollbar */
+  width: 12px; 
+  height: 12px;
+  
 }
 
 ::-webkit-scrollbar-track {
@@ -44,6 +45,9 @@
   
   .btn-outline{
     @apply bg-transparent  text-center text-white border border-white font-nunito   px-3  sm:px-8   py-2  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
+  }
+  .headings{
+    @apply text-2xl md:text-3xl lg:text-5xl
   }
   
 }
@@ -79,9 +83,7 @@ a {
 header .open-menu {
   display: none;
 }
-header .container {
- 
-}
+
 
 /*--------- header-------------*/
 @media only screen and (max-width: 768px) {

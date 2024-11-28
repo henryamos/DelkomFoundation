@@ -3,18 +3,23 @@ import backgroundImg1 from "/assets/delkom1.jpg";
 import backgroundImg2 from "/assets/Delkom7.jpg";
 import backgroundImg3 from "/assets/Delkom4.jpg";
 import backgroundImg4 from "/assets/Delkom10.jpg";
+import { PaystackButton } from 'react-paystack';
 import About from './About';
 import OurImpact from './OurImpact';
 import Activities from './Activities';
 import Team from './Team';
-
+ const config = {
+   reference: new Date().getTime().toString(),
+   email: "user@example.com",
+   amount: 5, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+   publicKey: "pk_test_dsdfghuytfd2345678gvxxxxxxxxxx",
+ };
 
 const Home = () => {
   return (
     <>
       <HomeContent />
       <About/>
-      <br />
       <Activities/>
       <OurImpact/>
      <Team/>
