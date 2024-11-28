@@ -3,6 +3,7 @@ import backgroundImg1 from "/assets/delkom1.jpg";
 import backgroundImg2 from "/assets/Delkom7.jpg";
 import backgroundImg3 from "/assets/Delkom4.jpg";
 import backgroundImg4 from "/assets/Delkom10.jpg";
+import VolunteerFormModal from '../components/modal/VolunteerFormModal';
 import { PaystackButton } from 'react-paystack';
 import About from './About';
 import OurImpact from './OurImpact';
@@ -16,6 +17,7 @@ import Team from './Team';
  };
 
 const Home = () => {
+  
   return (
     <>
       <HomeContent />
@@ -29,6 +31,7 @@ const Home = () => {
 
 export const HomeContent = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const images = [backgroundImg1, backgroundImg2, backgroundImg3, backgroundImg4];
 
   useEffect(() => {
@@ -59,9 +62,15 @@ export const HomeContent = () => {
               educational stationery.
             </p>
             <div className="space-x-5 space-y-6 sm:space-x-12 sm:space-y-12">
-              <button className="text-sm btn-primary">Join us</button>
+              <button className="text-sm btn-primary"
+              onClick={()=>setIsModalOpen(true)} //open modal on button click
+              >Join us</button>
               <button className="text-sm btn-outline">Donate</button>
             </div>
+            <VolunteerFormModal
+            isOpen={isModalOpen}
+            onClose={()=>setIsModalOpen(false)} //close modal
+            />
           </div>
         </div>
       </section>
