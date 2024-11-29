@@ -7,6 +7,7 @@ import Activities from "./pages/Activities";
 import OurImpact from "./pages/OurImpact";
 import Team from "./pages/Team";
 import Testimony from "./pages/Testimony";
+import DonationPage from "./pages/DonationPage";
 
 
 
@@ -39,6 +40,12 @@ function App() {
        <Route path="/our-impact" element={
         <Layouts>
           <OurImpact/>
+        </Layouts>
+      }/>
+      {/* Donate */}
+      <Route path="/donatePage" element={
+        <Layouts>
+          <DonationPage/>
         </Layouts>
       }/>
        {/* Team*/}

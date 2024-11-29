@@ -12,7 +12,7 @@ const ImpactStats = () => {
             <div className="bg-darkYellow p-6 rounded-lg text-2xl md:text-4xl font-bold text-black">
               700+
             </div>
-            <p className="mt-4 md:text-2xl text-white">Needy Children Feed</p>
+            <p className="mt-4 md:text-2xl text-white">Needy Children Fed</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="bg-darkYellow p-6 rounded-lg text-2xl  md:text-4xl font-bold text-black">

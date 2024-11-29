@@ -10,6 +10,7 @@ import OurImpact from './OurImpact';
 import Activities from './Activities';
 import Team from './Team';
 import DonationPage from './DonationPage';
+import { Link } from 'react-router-dom';
  const config = {
    reference: new Date().getTime().toString(),
    email: "user@example.com",
@@ -67,7 +68,9 @@ export const HomeContent = () => {
               <button className="text-sm btn-primary"
               onClick={()=>setIsModalOpen(true)} //open modal on button click
               >Join us</button>
+              <Link to="/donatePage">
               <button className="text-sm btn-outline">Donate</button>
+              </Link>
             </div>
             <VolunteerFormModal
             isOpen={isModalOpen}

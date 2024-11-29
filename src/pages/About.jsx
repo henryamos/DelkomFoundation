@@ -11,7 +11,7 @@ const About = () => {
   return (
     <>
       {/* Mobile & Tablet Section - Visible on screens smaller than 'lg' */}
-      <section className="w-full  lg:hidden text-left tracking-normal text-primary flex justify-center bg-primaryDark">
+      <section className="w-full  lg:hidden text-left tracking-normal text-primary flex justify-center bg-overlayPrimary">
         <div className="w-[85%] lg:w-[90%]">
           <div className="  ">
             <h2 className="headings text-white py-10  mb-4 font-bold text-center text-nunito">

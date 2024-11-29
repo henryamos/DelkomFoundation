@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import bookImg from '../assets/Delkom11.jpg'
+import bookImg from '../assets/books.jpg'
+import clothing from '../assets/cloths.jpg'
+
 
 const DonationPage = () => {
   const [customAmount, setCustomAmount] = useState("");
@@ -24,65 +26,67 @@ const DonationPage = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen flex flex-col items-center justify-center p-4">
+    <div className="bg-overlayPrimary min-h-screen flex flex-col items-center justify-center p-4">
       {/* Fundraising Categories Section */}
-      <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-7xl w-full mb-8">
-        <h1 className="text-4xl font-bold mb-6 text-center text-white">
-          Make a Donation
+      <div className="bg-overlay shadow-lg rounded-lg p-16 max-w-7xl w-full mb-8">
+        <h1 className="headings font-bold mb-6 text-center text-white">
+          Make a <span className="text-darkYellow">Donation</span>
         </h1>
         <h2 className="text-2xl font-semibold mb-4 text-center text-gray-300">
-          Fundraising Categories
+          Fundraising <span className="text-darkYellow">Categories</span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-blue-700 p-4 rounded-lg text-center shadow-md">
+        <div className="grid  grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-primary  p-4 rounded-lg text-center shadow-md">
             <img
               src={bookImg}
               alt="Buy Stationery"
-              className="w-full h-32 object-cover rounded-t-lg"
+              className="w-full h-44 object-cover rounded-t-lg"
             />
-            <h3 className="text-lg font-semibold text-white">Buy Stationery</h3>
-            <p className="text-gray-200">
+            <h3 className="text-lg font-semibold text-dark">
+              Donate Stationery
+            </h3>
+            <p className="text-overlay">
               Help us provide essential stationery for children.
             </p>
             <button
               onClick={() => handleFixedDonation(20)}
-              className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 mt-2"
+              className="bg-dark text-white hover:bg-darkYellow hover:text-dark py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 mt-2"
             >
               Donate GH₵10
             </button>
           </div>
-          <div className="bg-blue-700 p-4 rounded-lg text-center shadow-md">
+          <div className="bg-primary p-4 rounded-lg text-center shadow-md">
             <img
-              src={bookImg}
+              src={clothing}
               alt="Donate Clothing"
-              className="w-full h-32 object-cover rounded-t-lg"
+              className="w-full h-44 object-cover rounded-t-lg"
             />
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg  font-semibold text-dark">
               Donate Clothing
             </h3>
-            <p className="text-gray-200">
+            <p className="text-overlay">
               Support our clothing drive for those in need.
             </p>
             <button
               onClick={() => handleFixedDonation(30)}
-              className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 mt-2"
+              className="bg-dark hover:bg-darkYellow text-white hover:text-dark py-2 px-4 rounded-lg  transition duration-300 mt-2"
             >
               Donate GH₵20
             </button>
           </div>
-          <div className="bg-blue-700 p-4 rounded-lg text-center shadow-md">
+          <div className="bg-primary p-4 rounded-lg text-center shadow-md">
             <img
               src={bookImg}
               alt="Donate Food"
-              className="w-full h-32 object-cover rounded-t-lg"
+              className="w-full h-44 object-cover rounded-t-lg"
             />
-            <h3 className="text-lg font-semibold text-white">Donate Food</h3>
-            <p className="text-gray-200">
+            <h3 className="text-lg font-semibold text-dark">Donate Food</h3>
+            <p className="text-overlay">
               Help us provide meals for families in need.
             </p>
             <button
               onClick={() => handleFixedDonation(50)}
-              className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 mt-2"
+              className="bg-dark hover:bg-darkYellow  text-white hover:text-dark py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 mt-2"
             >
               Donate GH₵20
             </button>
@@ -91,9 +95,9 @@ const DonationPage = () => {
       </div>
 
       {/* Donation Form Section */}
-      <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-lg w-full">
-        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-300">
-          Custom Donation Amount
+      <div className="bg-overlayPrimary shadow-lg rounded-lg p-8 max-w-lg w-full">
+        <h2 className="text-2xl font-semibold mb-4 text-center text-primary">
+          Custom Donation <span className="text-darkYellow">Amount</span>
         </h2>
         <form
           onSubmit={handleCustomDonation}
@@ -104,12 +108,12 @@ const DonationPage = () => {
             value={customAmount}
             onChange={handleCustomAmountChange}
             placeholder="Enter your custom amount"
-            className="border border-gray-600 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-xs mb-4 text-gray-900"
+            className=" rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-darkYellow w-full max-w-xs mb-4 text-gray-900"
             required
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-300 w-full max-w-xs"
+            className="bg-darkYellow text-dark hover:bg-primary py-3 px-4 rounded-lg  transition duration-300 w-full max-w-xs"
           >
             Donate
           </button>

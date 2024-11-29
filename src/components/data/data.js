@@ -16,27 +16,32 @@ export const LinkData = [
   {
     id: 2,
     title: "About",
-    url: "/about",
+    url: "/About",
   },
   {
     id: 3,
     title: "Activities",
-    url: "/activities",
+    url: "/Activities",
   },
   {
     id: 4,
     title: "Our Impact",
-    url: "/our-impact",
+    url: "/Our-impact",
   },
-
   {
     id: 5,
-    title: "Team",
-    url: "/team",
+    title: "Donate",
+    url: "/donatePage",
   },
 
   {
     id: 6,
+    title: "Team",
+    url: "/Team",
+  },
+
+  {
+    id: 7,
     title: "Testimony",
     url: "/testimony",
   },
