@@ -51,7 +51,7 @@ const TeamCard = () => {
                 <div className="p-4">
                   <h3 className="text-xl font-bold text-white">{member.name}</h3>
                   <div className="flex justify-between items-center mt-2">
-                    <p className="font-bold text-darkYellow">{member.role}</p>
+                    <p className="font-normal text-sm text-darkYellow">{member.role}</p>
                     <div className="flex space-x-2">
                       <a href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full flex items-center justify-center hover:bg-darkYellow hover:text-dark transition-colors duration-300">
                         <FaLinkedin className="text-primary hover:text-dark w-4 h-4" />

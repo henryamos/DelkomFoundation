@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import backgroundImage from '../../public/assets/delkom2.jpg';
+import backgroundImage from "../assets/Delkom7.jpg"
 
 function Header() {
   const location = useLocation();

@@ -1,5 +1,5 @@
  
-import backgroundImg1 from '/assets/Delkom9.jpg';
+import backgroundImg1 from '../assets/Delkom9.jpg';
 import booking from '../assets/map_school.svg';
 import clothing from '../assets/game-icons_clothes.svg';
 import food from '../assets/fluent_food-24-filled.svg';

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import bookImg from '../assets/Delkom11.jpg'
 
 const DonationPage = () => {
   const [customAmount, setCustomAmount] = useState("");
@@ -23,59 +24,96 @@ const DonationPage = () => {
   };
 
   return (
-    <div className="bg-overlayPrimary min-h-screen flex items-center justify-center p-4">
-      <div className="bg-primary shadow-lg rounded-lg p-8 max-w-lg w-full">
-        <h1 className="text-4xl font-bold mb-6 text-center text-blue-700">Make a Donation</h1>
-
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">Fixed Donation Options</h2>
-          <div className="grid grid-cols-2 gap-4">
+    <div className="bg-gray-900 min-h-screen flex flex-col items-center justify-center p-4">
+      {/* Fundraising Categories Section */}
+      <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-7xl w-full mb-8">
+        <h1 className="text-4xl font-bold mb-6 text-center text-white">
+          Make a Donation
+        </h1>
+        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-300">
+          Fundraising Categories
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-blue-700 p-4 rounded-lg text-center shadow-md">
+            <img
+              src={bookImg}
+              alt="Buy Stationery"
+              className="w-full h-32 object-cover rounded-t-lg"
+            />
+            <h3 className="text-lg font-semibold text-white">Buy Stationery</h3>
+            <p className="text-gray-200">
+              Help us provide essential stationery for children.
+            </p>
             <button
-              onClick={() => handleFixedDonation(10)}
-              className="bg-dark text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+              onClick={() => handleFixedDonation(20)}
+              className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 mt-2"
             >
-              $10
+              Donate GH₵10
             </button>
+          </div>
+          <div className="bg-blue-700 p-4 rounded-lg text-center shadow-md">
+            <img
+              src={bookImg}
+              alt="Donate Clothing"
+              className="w-full h-32 object-cover rounded-t-lg"
+            />
+            <h3 className="text-lg font-semibold text-white">
+              Donate Clothing
+            </h3>
+            <p className="text-gray-200">
+              Support our clothing drive for those in need.
+            </p>
             <button
-              onClick={() => handleFixedDonation(25)}
-              className="bg-dark text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+              onClick={() => handleFixedDonation(30)}
+              className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 mt-2"
             >
-              $25
+              Donate GH₵20
             </button>
+          </div>
+          <div className="bg-blue-700 p-4 rounded-lg text-center shadow-md">
+            <img
+              src={bookImg}
+              alt="Donate Food"
+              className="w-full h-32 object-cover rounded-t-lg"
+            />
+            <h3 className="text-lg font-semibold text-white">Donate Food</h3>
+            <p className="text-gray-200">
+              Help us provide meals for families in need.
+            </p>
             <button
               onClick={() => handleFixedDonation(50)}
-              className="bg-dark text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+              className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 mt-2"
             >
-              $50
-            </button>
-            <button
-              onClick={() => handleFixedDonation(100)}
-              className="bg-dark text-white py-3 rounded-lg hover:bg-bgDark transition duration-300"
-            >
-              $100
+              Donate GH₵20
             </button>
           </div>
         </div>
+      </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">Custom Donation Amount</h2>
-          <form onSubmit={handleCustomDonation} className="flex flex-col items-center">
-            <input
-              type="number"
-              value={customAmount}
-              onChange={handleCustomAmountChange}
-              placeholder="Enter your custom amount"
-              className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-xs mb-4"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-dark text-white py-3 px-4 rounded-lg hover:bg-bgDark transition duration-300 w-full max-w-xs"
-            >
-              Donate
-            </button>
-          </form>
-        </div>
+      {/* Donation Form Section */}
+      <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-lg w-full">
+        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-300">
+          Custom Donation Amount
+        </h2>
+        <form
+          onSubmit={handleCustomDonation}
+          className="flex flex-col items-center"
+        >
+          <input
+            type="number"
+            value={customAmount}
+            onChange={handleCustomAmountChange}
+            placeholder="Enter your custom amount"
+            className="border border-gray-600 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-xs mb-4 text-gray-900"
+            required
+          />
+          <button
+            type="submit"
+            className="bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-300 w-full max-w-xs"
+          >
+            Donate
+          </button>
+        </form>
       </div>
     </div>
   );

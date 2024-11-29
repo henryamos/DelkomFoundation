@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import backgroundImg1 from "/assets/delkom1.jpg";
+import  backgroundImg1 from "../assets/delkom1.jpg"
 
 const About = () => {
   const [revealed, setRevealed] = useState(true); // Start with the text revealed

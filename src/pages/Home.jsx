@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import backgroundImg1 from "/assets/delkom1.jpg";
-import backgroundImg2 from "/assets/Delkom7.jpg";
-import backgroundImg3 from "/assets/Delkom4.jpg";
-import backgroundImg4 from "/assets/Delkom10.jpg";
+import backgroundImg1 from "../assets/delkom1.jpg";
+import backgroundImg2 from "../assets/Delkom7.jpg";
+import backgroundImg3 from "../assets/Delkom4.jpg";
+import backgroundImg4 from "../assets/Delkom10.jpg"
 import VolunteerFormModal from '../components/modal/VolunteerFormModal';
 import { PaystackButton } from 'react-paystack';
 import About from './About';

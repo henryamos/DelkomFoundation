@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Logo from '/assets/DelLogo.png';
+import Logo from '../assets/DelLogo.png'
 import { NavLink } from 'react-router-dom';
 import { LinkData } from './data/data';
 import { HiOutlineMenuAlt1, HiX } from 'react-icons/hi';
