@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import bookImg from '../assets/books.jpg'
 import clothing from '../assets/cloths.jpg'
 import food from '../assets/foodd.jpg'
@@ -26,6 +27,12 @@ const DonationPage = () => {
     }
   };
 
+  // Animation variants for pop-in effect
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.8 }, // Start off-screen and smaller
+    visible: { opacity: 1, scale: 1 }, // Scale to full size and full opacity
+  };
+
   return (
     <div className="bg-overlayPrimary min-h-screen flex flex-col items-center justify-center p-4">
       {/* Fundraising Categories Section */}
@@ -37,7 +44,13 @@ const DonationPage = () => {
           Fundraising <span className="text-darkYellow">Categories</span>
         </h2>
         <div className="grid  grid-cols-1 md:grid-cols-3 gap-3">
-          <div className="bg-primary  p-3 rounded-lg text-center shadow-md">
+          <motion.div
+            className="bg-primary  p-3 rounded-lg text-center shadow-md"
+            initial="hidden"
+            animate="visible"
+            variants={cardVariants}
+            transition={{ duration: 0.5 }}
+          >
             <img
               src={bookImg}
               alt="Buy Stationery"
@@ -55,8 +68,14 @@ const DonationPage = () => {
             >
               Donate GH₵15
             </button>
-          </div>
-          <div className="bg-primary p-3 rounded-lg text-center shadow-md">
+          </motion.div>
+          <motion.div
+            className="bg-primary p-3 rounded-lg text-center shadow-md"
+            initial="hidden"
+            animate="visible"
+            variants={cardVariants}
+            transition={{ duration: 0.5 }}
+          >
             <img
               src={clothing}
               alt="Donate Clothing"
@@ -74,8 +93,14 @@ const DonationPage = () => {
             >
               Donate GH₵20
             </button>
-          </div>
-          <div className="bg-primary p-3 rounded-lg text-center shadow-md">
+          </motion.div>
+          <motion.div
+            className="bg-primary p-3 rounded-lg text-center shadow-md"
+            initial="hidden"
+            animate="visible"
+            variants={cardVariants}
+            transition={{ duration: 0.5 }}
+          >
             <img
               src={food}
               alt="Donate Food"
@@ -91,7 +116,7 @@ const DonationPage = () => {
             >
               Donate GH₵20
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 

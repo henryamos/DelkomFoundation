@@ -1,5 +1,6 @@
-import  { useState } from 'react';
-import  backgroundImg1 from "../assets/delkom1.jpg"
+import { useState } from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
+import backgroundImg1 from "../assets/delkom1.jpg";
 
 const About = () => {
   const [revealed, setRevealed] = useState(true); // Start with the text revealed
@@ -8,19 +9,33 @@ const About = () => {
     setRevealed(!revealed);
   };
 
+  // Animation variants for pop-in effect
+  const variants = {
+    hidden: { opacity: 0, scale: 0.8 }, // Start off-screen and smaller
+    visible: { opacity: 1, scale: 1 }, // Scale to full size and full opacity
+    exit: { opacity: 0, scale: 0.8 }, // Scale down and fade out
+  };
+
   return (
     <>
       {/* Mobile & Tablet Section - Visible on screens smaller than 'lg' */}
-      <section className="w-full  lg:hidden text-left tracking-normal text-primary flex justify-center bg-overlayPrimary">
+      <motion.section
+        className="w-full lg:hidden text-left tracking-normal text-primary flex justify-center bg-overlayPrimary"
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={variants}
+        transition={{ duration: 0.5 }} // Adjust duration as needed
+      >
         <div className="w-[85%] lg:w-[90%]">
-          <div className="  ">
-            <h2 className="headings text-white py-10  mb-4 font-bold text-center text-nunito">
-              About <span className="text-darkYellow">Us</span>{" "}
+          <div>
+            <h2 className="headings text-white py-10 mb-4 font-bold text-center text-nunito">
+              About <span className="text-darkYellow">Us</span>
             </h2>
           </div>
-          <div className="">
+          <div>
             <img
-              className="w-full object-cover max-h-[60vh] p-1 mx-auto rounded-xl "
+              className="w-full object-cover max-h-[60vh] p-1 mx-auto rounded-xl"
               src={backgroundImg1}
               alt="Delkom Charity Foundation"
             />
@@ -68,18 +83,24 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Desktop Section - Visible on screens 'lg' and larger */}
-      <section className=" bg-primaryDark hidden  lg:block  w-full min-h-[600px]  mx-auto px-2">
-        <div className="w-[80%] lg:w-[90%]  lg:grid lg:grid-cols-1 xl:grid-cols-12 gap-6">
+      <motion.section
+        className="bg-primaryDark hidden lg:block w-full min-h-[600px] mx-auto px-2"
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={variants}
+        transition={{ duration: 0.5 }} // Adjust duration as needed
+      >
+        <div className="w-[80%] lg:w-[90%] lg:grid lg:grid-cols-1 xl:grid-cols-12 gap-6">
           <div className="xl:col-span-5 lg:min-h-[600px] flex justify-center items-center">
             <img
-              className="h-auto max-w-full mt-4  rounded-xl"
+              className="h-auto max-w-full mt-4 rounded-xl"
               src={backgroundImg1}
               alt="Delkom Charity Foundation"
             />
-            {/* <img className='max-w-full h-[40%] p-1 rounded-xl absolute top-1/2 right-1/4 ' src={backgroundImg2} alt="Delkom Charity Foundation" /> */}
           </div>
           <div className="xl:col-span-7 lg:min-h-[400px] flex flex-col justify-center">
             <h2 className="text-4xl text-white font-bold text-center text-nunito">
@@ -101,7 +122,7 @@ const About = () => {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

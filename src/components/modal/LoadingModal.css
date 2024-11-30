@@ -35,13 +35,18 @@
   animation: rolling 1s linear infinite;
 }
 
+.fade-in {
+  animation: fadeIn 0.5s forwards; /* Fade in effect for letters */
+}
+
+.invisible {
+  visibility: hidden; /* Hide letters that are not yet visible */
+}
+
 .text-darkYellow {
   color: #DAA520; /* Dark Yellow color */
 }
 
-.letter-0 { animation: fadeIn 0.5s forwards; animation-delay: 0s; }
-.letter-1 { animation: fadeIn 0.5s forwards; animation-delay: 0.1s; }
-.letter-2 { animation: fadeIn 0.5s forwards; animation-delay: 0.2s; }
-.letter-3 { animation: fadeIn 0.5s forwards; animation-delay: 0.3s; }
-.letter-4 { animation: fadeIn 0.5s forwards; animation-delay: 0.4s; }
-.letter-5 { animation: fadeIn 0.5s forwards; animation-delay: 0.5s; }
+.text-white {
+  color: white; /* White color */
+}
