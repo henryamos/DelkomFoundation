@@ -1,12 +1,14 @@
-import  { useState } from 'react';
+import React, { useState } from 'react';
 import { teamData } from './data/data'; // Import your data
 import { FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa'; // Import icons from react-icons
 import useWindowWidth from '../hook/useWindowWidth';
+import SkeletonCard from './SkeletonCard'; // Import the SkeletonCard component
 
 const TeamCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const windowWidth = useWindowWidth();
   const isLargeScreen = windowWidth >= 1024;
+  const [loading, setLoading] = useState(true); // State to track loading
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => 
@@ -28,11 +30,11 @@ const TeamCard = () => {
   };
 
   return (
-    <div className="relative w-full bg-dark  bg-opacity-90  py-8">
+    <div className="relative w-full bg-dark bg-opacity-90 py-8">
       <h2 className="text-2xl font-bold text-center text-white md:text-3xl mb-8">
         Meet Our <span className="text-darkYellow">Team</span>
       </h2>
-      <div className="overflow-hidden relative mb-8"> {/* Added margin-bottom to create space for indicators */}
+      <div className="overflow-hidden relative mb-8">
         <div
           className="flex transition-transform duration-500"
           style={{ transform: calculateTransform() }}
@@ -47,7 +49,10 @@ const TeamCard = () => {
                   src={member.imgUrl}
                   alt={member.name}
                   className="w-full h-96 object-cover"
+                  onLoad={() => setLoading(false)} // Set loading to false when image loads
+                  style={{ display: loading ? 'none' : 'block' }} // Hide image until loaded
                 />
+                {loading && <SkeletonCard />} {/* Show skeleton while loading */}
                 <div className="p-4">
                   <h3 className="text-xl font-bold text-white">{member.name}</h3>
                   <div className="flex justify-between items-center mt-2">

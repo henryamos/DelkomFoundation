@@ -9,49 +9,43 @@
   body {
     @apply box-border w-full h-full p-0 m-0;
     overflow: auto; /* Ensure the body can scroll */
+  }
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
 
-  }  
- /* Custom scrollbar styling */
- ::-webkit-scrollbar {
-  width: 12px; 
-  height: 12px;
-  
-}
+  ::-webkit-scrollbar-track {
+    background: #1b1919; /* Color of the scrollbar track */
+  }
 
-::-webkit-scrollbar-track {
-  background: #1B1919; /* Color of the scrollbar track */
-}
+  ::-webkit-scrollbar-thumb {
+    background-color: #f9c718; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners */
+    border: 3px solid #1b1919; /* Adds space around the thumb */
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: #F9C718; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners */
-  border: 3px solid #1B1919; /* Adds space around the thumb */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #F9C202; /* Color of the scrollbar thumb on hover */
-}
-
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #f9c202; /* Color of the scrollbar thumb on hover */
+  }
 }
 
 @layer components {
-  .btn-primary{
+  .btn-primary {
     @apply bg-darkYellow text-center text-dark font-nunito px-6 sm:px-8    py-4  sm:py-4  md:px-12  md:py-5 md:font-bold  rounded-md hover:scale-95;
   }
   /* .btn-secondary{
     @apply bg-secondary text-center text-dark font-nunito   px-3  sm:px-8   py-2  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
   } */
 
-  
-  .btn-outline{
+  .btn-outline {
     @apply bg-transparent  text-center text-white border border-white font-nunito   px-6  sm:px-8   py-4  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
   }
-  .headings{
-    @apply text-2xl md:text-3xl lg:text-5xl
+  .headings {
+    @apply text-2xl md:text-3xl lg:text-5xl;
   }
-  
 }
-
 
 * {
   padding: 0;
@@ -59,13 +53,11 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Nunito","PT-Sans", sans-serif;
-  background-color: #F0F0F0;
- 
+  font-family: "Nunito", "PT-Sans", sans-serif;
+  background-color: #f0f0f0;
 }
 .container {
   max-width: 70%;
- 
 }
 
 ul,
@@ -83,7 +75,6 @@ a {
 header .open-menu {
   display: none;
 }
-
 
 /*--------- header-------------*/
 @media only screen and (max-width: 768px) {
@@ -103,7 +94,6 @@ header .open-menu {
     background-color: rgba(3, 3, 3, 0.96);
 
     z-index: 55;
-
   }
   header .mobile-view ul {
     display: flex;
@@ -126,3 +116,19 @@ header .open-menu {
   opacity: 1;
 }
 
+/* src/styles.css */
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s infinite;
+}

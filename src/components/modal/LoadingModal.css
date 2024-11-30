@@ -1,0 +1,47 @@
+/* src/components/modal/LoadingModal.css */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rolling {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loader {
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-top: 8px solid #DAA520; /* Dark Yellow color */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: rolling 1s linear infinite;
+}
+
+.text-darkYellow {
+  color: #DAA520; /* Dark Yellow color */
+}
+
+.letter-0 { animation: fadeIn 0.5s forwards; animation-delay: 0s; }
+.letter-1 { animation: fadeIn 0.5s forwards; animation-delay: 0.1s; }
+.letter-2 { animation: fadeIn 0.5s forwards; animation-delay: 0.2s; }
+.letter-3 { animation: fadeIn 0.5s forwards; animation-delay: 0.3s; }
+.letter-4 { animation: fadeIn 0.5s forwards; animation-delay: 0.4s; }
+.letter-5 { animation: fadeIn 0.5s forwards; animation-delay: 0.5s; }
