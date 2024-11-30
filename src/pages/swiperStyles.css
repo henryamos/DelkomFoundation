@@ -1,0 +1,11 @@
+.swiper-pagination-bullet {
+  background-color: #fff !important; /* Ensure bullets are yellow */
+  opacity: 1; /* Make sure they are fully visible */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #F9C718 !important; /* Change active bullet color if desired */
+}
+.mySwiper {
+  height: 100%; /* Ensure Swiper takes full height */
+}

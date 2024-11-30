@@ -36,15 +36,15 @@
 
 @layer components {
   .btn-primary{
-    @apply bg-darkYellow text-center text-dark font-nunito px-3 sm:px-8    py-2  sm:py-4  md:px-12  md:py-5 md:font-bold  rounded-md hover:scale-95;
+    @apply bg-darkYellow text-center text-dark font-nunito px-6 sm:px-8    py-4  sm:py-4  md:px-12  md:py-5 md:font-bold  rounded-md hover:scale-95;
   }
-  .btn-secondary{
+  /* .btn-secondary{
     @apply bg-secondary text-center text-dark font-nunito   px-3  sm:px-8   py-2  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
-  }
+  } */
 
   
   .btn-outline{
-    @apply bg-transparent  text-center text-white border border-white font-nunito   px-3  sm:px-8   py-2  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
+    @apply bg-transparent  text-center text-white border border-white font-nunito   px-6  sm:px-8   py-4  sm:py-4 md:px-12  md:py-5 md:font-bold rounded-md hover:scale-95;
   }
   .headings{
     @apply text-2xl md:text-3xl lg:text-5xl

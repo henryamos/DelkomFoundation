@@ -1,8 +1,8 @@
 import Ben from "../../assets/ben.jpg";
-import Dede from "../../assets/Dede.jpg";
+import Dede from "../../assets/Prez.jpg";
 import Vice from "../../assets/VIcePresident.jpg";
-import Lead from "../../assets/Guy.jpg"
-import Sec from "../../assets/FairLady.jpg"
+import Lead from "../../assets/Gideon.jpg";
+import Sec from "../../assets/FairLady.jpg";
 import creative from "../../assets/Delkom13.jpg";
 import donation from "../../assets/Delkom11.jpg";
 import mentorship from "../../assets/DelEdu.jpg";
@@ -42,8 +42,8 @@ export const LinkData = [
 
   {
     id: 7,
-    title: "Testimony",
-    url: "/testimony",
+    title: "Contact Us",
+    url: "/contact-us",
   },
 ];
 
@@ -148,8 +148,8 @@ export const teamData = [
   },
   {
     id: 5,
-    name: "Amatus Konkani Akoto",
-    role: "Vice-President",
+    name: "Gifford Kofi Baiden",
+    role: "Events Coordinator",
     imgUrl: Lead,
     socialLinks: {
       linkedin: "https://linkedin.com",

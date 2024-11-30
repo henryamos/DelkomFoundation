@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layouts from "./components/Layouts";
 import Home from "./pages/Home";
@@ -6,7 +5,7 @@ import About from "./pages/About";
 import Activities from "./pages/Activities";
 import OurImpact from "./pages/OurImpact";
 import Team from "./pages/Team";
-import Testimony from "./pages/Testimony";
+import ContactUs from "./pages/ContactUs";
 import DonationPage from "./pages/DonationPage";
 
 
@@ -55,10 +54,10 @@ function App() {
         </Layouts>
       }/>
 
-       {/* Testimony*/}
-       <Route path="/testimony" element={
+       {/* Contact Us*/}
+       <Route path="/contact-us" element={
         <Layouts>
-          <Testimony/>
+          <ContactUs/>
         </Layouts>
       }/>
 
