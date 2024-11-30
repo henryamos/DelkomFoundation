@@ -56,7 +56,7 @@ function App() {
           <Route path="/our-impact" element={<Layout><OurImpact /></Layout>} />
           <Route path="/team" element={<Layout><Team /></Layout>} />
           <Route path="/contact-us" element={<Layout><ContactUs /></Layout>} />
-          <Route path="/donate" element={<Layout><DonationPage /></Layout>} />
+          <Route path="/donatePage" element={<Layout><DonationPage /></Layout>} />
         </Routes>
       </Suspense>
     </Router>
