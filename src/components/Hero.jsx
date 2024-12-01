@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Logo from '../assets/DelLogo.png'
-import { NavLink } from 'react-router-dom';
-import { LinkData } from './data/data';
-import { HiOutlineMenuAlt1, HiX } from 'react-icons/hi';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Logo from "../assets/LogoDel.png";
+import { NavLink } from "react-router-dom";
+import { LinkData } from "./data/data";
+import { HiOutlineMenuAlt1, HiX } from "react-icons/hi";
 
 const Hero = () => {
   const [open, setOpen] = useState(false);
 
   const variants = {
     open: { opacity: 1, x: 0, transition: { duration: 0.3 } }, // Increase speed by setting duration to 0.3 seconds
-    closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } } // Increase speed by setting duration to 0.3 seconds
-  }
+    closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } }, // Increase speed by setting duration to 0.3 seconds
+  };
 
   return (
     <header className="sticky z-50 w-full p-4 text-white bg-dark shadow-md h-[80px]">
@@ -39,7 +39,6 @@ const Hero = () => {
                 </NavLink>
               </li>
             ))}
-           
           </ul>
         </nav>
         {/* Menu Button */}
@@ -91,13 +90,12 @@ const Hero = () => {
                   </NavLink>
                 </li>
               ))}
-              
             </ul>
           </motion.nav>
         )}
       </AnimatePresence>
     </header>
   );
-}
+};
 
 export default Hero;

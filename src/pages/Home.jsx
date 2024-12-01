@@ -89,15 +89,15 @@ export const HomeContent = () => {
                     <button className="text-md  btn-outline">Donate</button>
                   </Link>
                 </div>
-                <VolunteerFormModal
-                  isOpen={isModalOpen}
-                  onClose={() => setIsModalOpen(false)} //close modal
-                />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </section>
+      <VolunteerFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} //close modal
+      />
     </>
   );
 };

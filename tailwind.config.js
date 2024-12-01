@@ -23,7 +23,12 @@ export default {
         blue:"#162DA5",
         // dark//
         dark: "#050505",
+        darkBase:"#595959",
+        darkShade:"#262626",
+        darkPrimary:"#0d0d0d",
         bgDark:"#1B1919",
+        blackShade:"#282525",
+        blackBase:"#423d3d",
         primaryDark:"rgba(14, 14, 14, 0.85)",
         overlay:"rgba(5, 5, 5, 0.73)",
         overlayPrimary:"rgba(4,4,4,0.75)",
