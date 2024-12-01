@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { MdClose } from "react-icons/md";
 
 const VolunteerFormModal = ({ isOpen, onClose }) => {
   const firstNameRef = useRef();
@@ -35,7 +36,9 @@ const VolunteerFormModal = ({ isOpen, onClose }) => {
         toast.success("Thank you for registering as a volunteer!");
         onClose();
       } else {
-        toast.error("There was an error submitting your form. Please try again.");
+        toast.error(
+          "There was an error submitting your form. Please try again."
+        );
       }
     } catch (error) {
       console.log("Error", error);
@@ -49,12 +52,12 @@ const VolunteerFormModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed  capitalize inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
+      <div className="bg-white p-3 rounded-lg shadow-lg w-full max-w-md mx-4">
         <button
           onClick={onClose}
-          className="text-gray-500 hover:text-gray-700 float-right"
+          className="bg-dark rounded-full p-2 hover:bg-opacity-80 float-right"
         >
-          X
+          <MdClose className="text-darkYellow" size={16} />
         </button>
         <h2 className="text-2xl font-bold mb-6 text-dark text-center">
           Volunteer Registration
