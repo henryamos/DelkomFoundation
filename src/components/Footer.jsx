@@ -19,7 +19,7 @@ function Footer() {
               Making a difference in the lives of those in need.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row md:space-x-16 items-start md:w-2/3 mt-4 md:mt-0">
+          <div className="flex flex-row justify-between space-x-8 md:flex-row md:space-x-16 items-start md:w-2/3 mt-4 md:mt-0">
             <div className="flex flex-col items-start mb-4 md:mb-0">
               <h2 className="text-lg font-bold mb-4 text-white hover:text-darkYellow">
                 Pages
