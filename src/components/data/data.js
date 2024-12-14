@@ -20,28 +20,33 @@ export const LinkData = [
   },
   {
     id: 3,
+    title: "About",
+    url: "/AboutDetails",
+  },
+  {
+    id: 4,
     title: "Activities",
     url: "/Activities",
   },
   {
-    id: 4,
+    id: 5,
     title: "Our Impact",
     url: "/Our-impact",
   },
   {
-    id: 5,
+    id: 6,
     title: "Donate",
     url: "/donatePage",
   },
 
   {
-    id: 6,
+    id: 7,
     title: "Team",
     url: "/Team",
   },
 
   {
-    id: 7,
+    id: 8,
     title: "Contact Us",
     url: "/contact-us",
   },

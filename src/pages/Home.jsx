@@ -56,6 +56,7 @@ export const HomeContent = () => {
     },
   ];
 
+  
   return (
     <>
       <section className="h-[90vh] lg:h-[100vh] w-screen">
