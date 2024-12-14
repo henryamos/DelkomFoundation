@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa6";
 
 function Footer() {
   const scrollToTop = () => {
@@ -32,27 +33,42 @@ function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" className="text-white hover:text-darkYellow">
+                    <Link
+                      to="/about"
+                      className="text-white hover:text-darkYellow"
+                    >
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link to="/activities" className="text-white hover:text-darkYellow">
+                    <Link
+                      to="/activities"
+                      className="text-white hover:text-darkYellow"
+                    >
                       Activities
                     </Link>
                   </li>
                   <li>
-                    <Link to="/our-impact" className="text-white hover:text-darkYellow">
+                    <Link
+                      to="/our-impact"
+                      className="text-white hover:text-darkYellow"
+                    >
                       Our Impact
                     </Link>
                   </li>
                   <li>
-                    <Link to="/team" className="text-white hover:text-darkYellow">
+                    <Link
+                      to="/team"
+                      className="text-white hover:text-darkYellow"
+                    >
                       Team
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact-us" className="text-white hover:text-darkYellow">
+                    <Link
+                      to="/contact-us"
+                      className="text-white hover:text-darkYellow"
+                    >
                       Contact Us
                     </Link>
                   </li>
@@ -65,7 +81,7 @@ function Footer() {
                 <ul className="space-y-2">
                   <li>
                     <a
-                      href="https://www.facebook.com/DelkomCharityFoundation"
+                      href="https://www.facebook.com/share/15gHpu24ev/?mibextid=LQQJ4d"
                       className="flex items-center text-white hover:text-darkYellow"
                     >
                       <FaFacebook className="mr-2" /> Facebook
@@ -73,7 +89,7 @@ function Footer() {
                   </li>
                   <li>
                     <a
-                      href="https://twitter.com/DelkomCharity"
+                      href="https://x.com/delkomcharity?s=21"
                       className="flex items-center text-white hover:text-darkYellow"
                     >
                       <FaTwitter className="mr-2" /> Twitter
@@ -81,7 +97,7 @@ function Footer() {
                   </li>
                   <li>
                     <a
-                      href="https://www.instagram.com/DelkomCharityFoundation"
+                      href="https://www.instagram.com/delkom_charity_foundation/?utm_source=ig_contact_invite#"
                       className="flex items-center text-white hover:text-darkYellow"
                     >
                       <FaInstagram className="mr-2" /> Instagram
@@ -93,6 +109,15 @@ function Footer() {
                       className="flex items-center text-white hover:text-darkYellow"
                     >
                       <FaEnvelope className="mr-2" /> Email
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://m.youtube.com/channel/UCSf6ppdBRwrNYbbhkLREwuA"
+                      className="flex items-center text-white hover:text-darkYellow"
+                    >
+                      <FaYoutube className="mr-2" />
+                      Youtube
                     </a>
                   </li>
                 </ul>
