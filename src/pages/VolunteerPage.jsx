@@ -54,8 +54,20 @@ const VolunteerPage = () => {
         e.target.reset();
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error(error.response?.data?.message || "An error occurred. Please try again.");
+      console.error('Form submission error:', error);
+      let errorMessage = 'An error occurred while submitting the form.';
+      
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        errorMessage = error.response.data?.message || 
+                      `Server error: ${error.response.status}`;
+      } else if (error.request) {
+        // The request was made but no response was received
+        errorMessage = 'No response from server. Please check your connection.';
+      }
+      
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }
