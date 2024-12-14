@@ -95,7 +95,7 @@ const VolunteerPage = () => {
 
           {/* Form Section */}
           <form onSubmit={handleSubmit} className="p-8 space-y-6">
-            {/* Full Name */}
+            {/* Full Name - letters and spaces only */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Volunteer's Full name <span className="text-red-500">*</span>
@@ -104,11 +104,14 @@ const VolunteerPage = () => {
                 type="text"
                 required
                 ref={fullNameRef}
+                pattern="^[A-Za-z\s]{2,}$"
+                title="Please enter a valid name (letters and spaces only)"
+                placeholder="Enter your full name"
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
               />
             </div>
 
-            {/* Email */}
+            {/* Email - with email pattern */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Email <span className="text-red-500">*</span>
@@ -117,24 +120,31 @@ const VolunteerPage = () => {
                 type="email"
                 required
                 ref={emailRef}
+                placeholder="example@email.com"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Please enter a valid email address"
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
               />
             </div>
 
-            {/* Primary Contact */}
+            {/* Primary Contact - with phone number pattern */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Primary Contact (eg. +233 548151982) <span className="text-red-500">*</span>
+                Primary Contact <span className="text-red-500">*</span>
               </label>
               <input
                 type="tel"
                 required
                 ref={primaryContactRef}
+                placeholder="+233 XX XXX XXXX"
+                pattern="^\+233[0-9]{9}$"
+                title="Please enter a valid Ghanaian phone number starting with +233"
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
               />
+              <p className="text-xs text-gray-500 mt-1">Format: +233XXXXXXXXX</p>
             </div>
 
-            {/* WhatsApp Contact */}
+            {/* WhatsApp Contact - with phone number pattern */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 WhatsApp Contact <span className="text-red-500">*</span>
@@ -143,11 +153,15 @@ const VolunteerPage = () => {
                 type="tel"
                 required
                 ref={whatsappContactRef}
+                placeholder="+233 XX XXX XXXX"
+                pattern="^\+233[0-9]{9}$"
+                title="Please enter a valid Ghanaian phone number starting with +233"
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
               />
+              <p className="text-xs text-gray-500 mt-1">Format: +233XXXXXXXXX</p>
             </div>
 
-            {/* Place of Residence */}
+            {/* Place of Residence - letters, spaces, and commas only */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Place Of Residence (currently) <span className="text-red-500">*</span>
@@ -156,14 +170,17 @@ const VolunteerPage = () => {
                 type="text"
                 required
                 ref={residenceRef}
+                pattern="^[A-Za-z\s,]{2,}$"
+                title="Please enter a valid location (letters, spaces, and commas only)"
+                placeholder="City, Region"
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
               />
             </div>
 
-            {/* Programs Selection */}
+            {/* Programs Selection - with minimum selection validation */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">
-                Which of our programs would you like to volunteer to within the three Quarters' of the year? <span className="text-red-500">*</span>
+                Which of our programs would you like to volunteer to? <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
                 {[
@@ -187,9 +204,10 @@ const VolunteerPage = () => {
                   </div>
                 ))}
               </div>
+              <p className="text-xs text-gray-500 mt-1">Please select at least one program</p>
             </div>
 
-            {/* Reason for Volunteering */}
+            {/* Reason for Volunteering - with minimum length */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Why do you wish to volunteer with us? <span className="text-red-500">*</span>
@@ -197,6 +215,8 @@ const VolunteerPage = () => {
               <textarea
                 required
                 ref={reasonRef}
+                minLength="20"
+                placeholder="Please share your motivation for volunteering (minimum 20 characters)"
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
                 rows="4"
               />
