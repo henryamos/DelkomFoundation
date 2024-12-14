@@ -11,6 +11,7 @@ const Team = lazy(() => import('./pages/Team'));
 const ContactUs = lazy(() => import('./pages/ContactUs'));
 const DonationPage = lazy(() => import('./pages/DonationPage'));
 const AboutDetails = lazy(() => import('./pages/AboutDetails'));
+const VolunteerPage = lazy(() => import('./pages/VolunteerPage'));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -52,6 +53,7 @@ function App() {
       <Suspense fallback={<LoadingModal />}>
         <Routes>
           <Route path="/" element={<Layout><Home /></Layout>} />
+          <Route path="/volunteer" element={<Layout><VolunteerPage /></Layout>} />
           <Route path="/about" element={<Layout><About /></Layout>} />
           <Route path="/about-details" element={<Layout><AboutDetails /></Layout>} />
           <Route path="/activities" element={<Layout><Activities /></Layout>} />

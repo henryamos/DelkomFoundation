@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+
+import { useNavigate } from "react-router-dom";
 import backgroundImg1 from "../assets/delkom1.jpg";
 import backgroundImg2 from "../assets/Delkom9.jpg";
 import backgroundImg3 from "../assets/Delkom11.jpg";
 import backgroundImg4 from "../assets/Delkom10.jpg";
 import backgroundImge5 from "../assets/background5.jpg";
-import VolunteerFormModal from "../components/modal/VolunteerFormModal";
 import About from "./About";
 import OurImpact from "./OurImpact";
 import Activities from "./Activities";
@@ -32,7 +32,8 @@ const Home = () => {
 };
 
 export const HomeContent = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
   const slides = [
     {
       image: backgroundImg1,
@@ -56,7 +57,6 @@ export const HomeContent = () => {
     },
   ];
 
-  
   return (
     <>
       <section className="h-[90vh] lg:h-[100vh] w-screen">
@@ -93,7 +93,7 @@ export const HomeContent = () => {
                 <div className="space-x-5 space-y-6 sm:space-x-12 sm:space-y-12">
                   <button
                     className="text-md btn-primary"
-                    onClick={() => setIsModalOpen(true)} //open modal on button click
+                    onClick={() => navigate('/volunteer')}
                   >
                     Join us
                   </button>
@@ -106,10 +106,6 @@ export const HomeContent = () => {
           ))}
         </Swiper>
       </section>
-      <VolunteerFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)} //close modal
-      />
     </>
   );
 };
