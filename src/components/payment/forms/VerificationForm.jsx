@@ -33,7 +33,7 @@ export const VerificationForm = ({
           <button
             type="submit"
             disabled={isLoading}
-            className="flex-1 bg-dark text-white py-2 px-4 rounded-md hover:bg-darkYellow 
+            className="flex-1 bg-dark text-white py-2 px-4 rounded-md hover:bg-darkYellow hover:text-dark
                         transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? "Verifying..." : "Verify Code"}

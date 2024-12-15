@@ -71,6 +71,9 @@ const DonationPage = () => {
 		</div>
 	);
 
+	// Predefined donation amounts
+	const donationAmounts = [10, 20, 50, 100];
+
 	return (
 		<div className="bg-overlayPrimary min-h-screen flex flex-col items-center justify-center p-4">
 			{/* Fundraising Categories Section */}
@@ -162,6 +165,29 @@ const DonationPage = () => {
 				</div>
 			</div>
 
+			{/* New Suggested Amounts Section */}
+			<div className="bg-overlay shadow-lg rounded-lg p-8 max-w-lg w-full mb-8">
+				<h2 className="text-2xl font-semibold mb-6 text-center text-white">
+					Suggested <span className="text-darkYellow">Amounts</span>
+				</h2>
+				<div className="grid grid-cols-2 gap-4">
+					{donationAmounts.map((amount) => (
+						<motion.button
+							key={amount}
+							onClick={() => handleFixedDonation(amount)}
+							className="bg-dark text-white py-4 px-6 rounded-lg 
+									 hover:bg-darkYellow hover:text-dark 
+									 transition-colors text-lg font-semibold"
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.3 }}
+						>
+							GH₵{amount}
+						</motion.button>
+					))}
+				</div>
+			</div>
+
 			{/* Custom Donation Form */}
 			<div className="bg-overlayPrimary shadow-lg rounded-lg p-8 max-w-lg w-full">
 				<h2 className="text-2xl font-semibold mb-4 text-center text-primary">
@@ -171,19 +197,28 @@ const DonationPage = () => {
 					onSubmit={handleCustomDonation}
 					className="flex flex-col items-center"
 				>
-					<input
-						type="number"
-						min="1"
-						step="any"
-						value={customAmount}
-						onChange={handleCustomAmountChange}
-						placeholder="Enter your custom amount (min. GH₵2)"
-						className="rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-darkYellow w-full max-w-xs mb-4 text-gray-900"
-						required
-					/>
+					<div className="relative w-full max-w-xs mb-4">
+						<span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+							GH₵
+						</span>
+						<input
+							type="number"
+							min="10"
+							step="any"
+							value={customAmount}
+							onChange={handleCustomAmountChange}
+							placeholder="Enter amount (min. GH₵10)"
+							className="rounded pl-10 pr-3 py-2 w-full
+									 focus:outline-none focus:ring-2 focus:ring-darkYellow 
+									 text-gray-900"
+							required
+						/>
+					</div>
 					<button
 						type="submit"
-						className="bg-darkYellow text-dark hover:bg-primary py-3 px-4 rounded-lg transition duration-300 w-full max-w-xs"
+						className="bg-darkYellow text-dark hover:bg-primary 
+								 hover:text-white py-3 px-4 rounded-lg 
+								 transition duration-300 w-full max-w-xs"
 					>
 						Donate
 					</button>

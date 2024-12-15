@@ -35,8 +35,8 @@ export const SuccessScreen = ({ transactionDetails, amount, onClose }) => {
       </div>
       <div className="flex space-x-4 justify-center">
         <button
-          onClick={() => navigate("/")}
-          className="bg-dark text-white py-2 px-4 rounded-md hover:bg-darkYellow 
+            onClick={() => navigate('/')}
+          className="bg-dark text-white py-2 px-4 rounded-md hover:bg-darkYellow  hover:text-dark
                     transition-colors"
         >
           Go to Home

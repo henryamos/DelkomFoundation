@@ -77,7 +77,7 @@ export const PaymentForm = ({
             type="submit"
             disabled={isLoading}
             className="flex-1 bg-dark text-white py-2 px-4 rounded-md hover:bg-darkYellow hover:text-dark
-                        transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {isLoading ? "Processing..." : "Pay Now"}
           </button>

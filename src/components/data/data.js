@@ -56,7 +56,7 @@ export const actvitiesData = [
   {
     id: 1,
     imgUrl: training,
-    title: "ICT TRAINING",
+    title: "TECH-DRIVE (ICT SESSIONS)",
     description:
       "Our ICT training is to educate and introduce the young people in the rural areas get experiences and exposure about the ICT they learn in their various schools ",
   },
