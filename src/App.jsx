@@ -54,17 +54,81 @@ function App() {
       {loading && <LoadingModal />}
       <Suspense fallback={<LoadingModal />}>
         <Routes>
-          <Route path="/" element={<Layout><Home /></Layout>} />
-          <Route path="/volunteer" element={<Layout><VolunteerPage /></Layout>} />
-          <Route path="/about" element={<Layout><About /></Layout>} />
-          <Route path="/about-details" element={<Layout><AboutDetails /></Layout>} />
-          <Route path="/activities" element={<Layout><Activities /></Layout>} />
-          <Route path="/our-impact" element={<Layout><OurImpact /></Layout>} />
-          <Route path="/team" element={<Layout><Team /></Layout>} />
-          <Route path="/contact-us" element={<Layout><ContactUs /></Layout>} />
-          <Route path="/donatePage" element={<Layout><DonationPage /></Layout>} />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Home />
+              </Layout>
+            }
+          />
+          <Route
+            path="/volunteer"
+            element={
+              <Layout>
+                <VolunteerPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                <About />
+              </Layout>
+            }
+          />
+          <Route
+            path="/about-details"
+            element={
+              <Layout>
+                <AboutDetails />
+              </Layout>
+            }
+          />
+          <Route
+            path="/activities"
+            element={
+              <Layout>
+                <Activities />
+              </Layout>
+            }
+          />
+          <Route
+            path="/our-impact"
+            element={
+              <Layout>
+                <OurImpact />
+              </Layout>
+            }
+          />
+          <Route
+            path="/team"
+            element={
+              <Layout>
+                <Team />
+              </Layout>
+            }
+          />
+          <Route
+            path="/contact-us"
+            element={
+              <Layout>
+                <ContactUs />
+              </Layout>
+            }
+          />
+          <Route
+            path="/donatePage"
+            element={
+              <Layout>
+                <DonationPage />
+              </Layout>
+            }
+          />
         </Routes>
-      </Suspense>
+      </Suspense>{" "}
+      {/* Toast Container */}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -75,7 +139,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="colored"
       />
     </Router>
   );

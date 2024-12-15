@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from '../assets/LogoDel.png';
 import { submitVolunteerForm } from "../services/volunteerService";
@@ -300,19 +300,7 @@ const VolunteerPage = () => {
         onClose={() => setShowSuccessModal(false)}
       />
 
-      {/* Toast Container */}
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
+     
     </>
   );
 };
