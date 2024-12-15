@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
+
 import PaymentFlow from '../components/payment/PaymentFlow';
 import bookImg from "../assets/books.jpg";
 import clothing from "../assets/cloths.jpg";
@@ -25,7 +26,10 @@ const DonationPage = () => {
 
 	// Handle custom donation amount change
 	const handleCustomAmountChange = (e) => {
-		setCustomAmount(e.target.value);
+		const value = e.target.value;
+		if (value === '' || (parseFloat(value) >= 0)) {
+			setCustomAmount(value);
+		}
 	};
 
 	// Handle custom donation submission
@@ -33,12 +37,18 @@ const DonationPage = () => {
 		e.preventDefault();
 		const amount = parseFloat(customAmount);
 		
-		if (amount && amount >= 2) {
-			setSelectedAmount(amount);
-			setShowPaymentModal(true);
-		} else {
-			toast.error("Please enter a valid amount (minimum GH₵2).");
+		if (!amount || isNaN(amount)) {
+			toast.error("Please enter a valid amount");
+			return;
 		}
+		
+		if (amount < 2) {
+			toast.error("Minimum donation amount is GH₵2");
+			return;
+		}
+		
+		setSelectedAmount(amount);
+		setShowPaymentModal(true);
 	};
 
 	// Handle payment success
@@ -203,20 +213,20 @@ const DonationPage = () => {
 						</span>
 						<input
 							type="number"
-							min="10"
+							
 							step="any"
 							value={customAmount}
 							onChange={handleCustomAmountChange}
-							placeholder="Enter amount (min. GH₵10)"
-							className="rounded pl-10 pr-3 py-2 w-full
+							placeholder="Enter amount (min. GH₵2)"
+							className="rounded pl-14 pr-6 py-2 w-full
 									 focus:outline-none focus:ring-2 focus:ring-darkYellow 
 									 text-gray-900"
-							required
+							
 						/>
 					</div>
 					<button
 						type="submit"
-						className="bg-darkYellow text-dark hover:bg-primary 
+						className="bg-darkYellow text-dark hover:bg-gray-600 
 								 hover:text-white py-3 px-4 rounded-lg 
 								 transition duration-300 w-full max-w-xs"
 					>
