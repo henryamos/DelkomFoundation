@@ -40,48 +40,77 @@ export const verifyPayment = async (externalRef, otpCode) => {
   }
 };
 
-// Payment Callback Check
-export const checkPaymentCallback = async (externalRef, transactionId) => {
+// Check Payment Status
+export const checkPaymentStatus = async (externalRef) => {
   try {
-    const payload = {
-      externalref: externalRef,
-      transactionid: transactionId,
-    };
+    const response = await api.post("/status", { externalRef });
+    
+    // Log the full response for debugging
+    console.log('Status Response:', response.data);
 
-    const response = await api.post("/callback", payload);
+    // Check if the payment is successful based on paymentStatus
+    const isSuccessful = response.data.data?.paymentStatus === "Successful";
+    const isPending = response.data.data?.paymentStatus === "Pending";
+
     return {
-      success: response.data.data.txstatus === 1,
+      success: isSuccessful,
+      pending: isPending,
       data: response.data.data,
+      message: response.data.message
     };
   } catch (error) {
-    console.error("Payment callback check error:", error);
+    console.error('Payment status check error:', error);
+    // If we have a response with payment status data, use it
+    if (error.response?.data?.data) {
+      return {
+        success: false,
+        pending: false,
+        data: error.response.data.data,
+        message: error.response.data.message || 'Payment check failed'
+      };
+    }
     throw error;
   }
 };
 
 // Poll for payment status
-export const pollPaymentStatus = async (
-  externalRef,
-  transactionId,
-  maxAttempts = 10
-) => {
+export const pollPaymentStatus = async (externalRef, maxAttempts = 30) => {
   let attempts = 0;
-
+  
   const checkStatus = async () => {
     try {
-      const result = await checkPaymentCallback(externalRef, transactionId);
+      if (attempts >= maxAttempts) {
+        throw new Error('Payment verification timeout');
+      }
+
+      const result = await checkPaymentStatus(externalRef);
+      console.log('Poll result:', result); // Debug log
+
+      // If payment is successful
       if (result.success) {
         return result;
       }
-
-      if (attempts >= maxAttempts) {
-        throw new Error("Payment verification timeout");
+      
+      // If payment failed (not pending)
+      if (!result.pending) {
+        throw new Error(result.message || 'Payment failed');
       }
-
+      
+      // If still pending, wait and try again
       attempts++;
-      await new Promise((resolve) => setTimeout(resolve, 3000)); // Wait 3 seconds
+      await new Promise(resolve => setTimeout(resolve, 8000));
       return checkStatus();
+      
     } catch (error) {
+      if (error.message === 'Payment verification timeout') {
+        throw error;
+      }
+      // For other errors, check if we should continue polling
+      if (attempts < maxAttempts) {
+        attempts++;
+        await new Promise(resolve => setTimeout(resolve, 8000));
+        return checkStatus();
+      }
       throw error;
     }
   };
@@ -90,13 +119,13 @@ export const pollPaymentStatus = async (
 };
 
 // Helper to get payment status text
-export const getPaymentStatusText = (txstatus) => {
-  switch (txstatus) {
-    case 1:
+export const getPaymentStatusText = (status) => {
+  switch (status) {
+    case "Successful":
       return "Payment Successful";
-    case 0:
+    case "Pending":
       return "Payment Pending";
-    case -1:
+    case "Failed":
       return "Payment Failed";
     default:
       return "Unknown Status";

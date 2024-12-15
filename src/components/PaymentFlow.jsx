@@ -15,6 +15,7 @@ const PaymentFlow = ({ amount, onSuccess, onCancel }) => {
         otpCode: ''
     });
     const [transactionComplete, setTransactionComplete] = useState(false);
+    const [transactionDetails, setTransactionDetails] = useState(null);
 
     // Update the polling function to check payment status
     const checkPaymentStatus = async (externalRef, transactionId) => {
@@ -65,31 +66,32 @@ const PaymentFlow = ({ amount, onSuccess, onCancel }) => {
                 verificationData.otpCode
             );
             
-            toast.info(verifyResponse.message || 'Verification successful');
+            toast.info('Please approve the payment on your phone');
             setStep('waiting');
 
-            // Start polling for payment status
-            let attempts = 0;
-            const maxAttempts = 10;
-            const pollInterval = setInterval(async () => {
-                attempts++;
-                const isComplete = await checkPaymentStatus(
-                    verificationData.externalRef,
-                    verifyResponse.transactionId
-                );
+            try {
+                // Start polling with the externalRef
+                const paymentResult = await pollPaymentStatus(verificationData.externalRef);
 
-                if (isComplete || attempts >= maxAttempts) {
-                    clearInterval(pollInterval);
-                    if (!isComplete && attempts >= maxAttempts) {
-                        toast.error('Payment verification timeout');
-                        setStep('initiate');
-                    }
+                if (paymentResult.success) {
+                    setTransactionDetails(paymentResult.data);
+                    setTransactionComplete(true);
+                    toast.success('Payment completed successfully!');
+                    setTimeout(() => {
+                        onSuccess?.(paymentResult.data);
+                    }, 2000);
+                } else {
+                    toast.error('Payment was not completed');
+                    setStep('initiate');
                 }
-            }, 3000); // Check every 3 seconds
-
-            // Cleanup interval on component unmount
-            return () => clearInterval(pollInterval);
-
+            } catch (pollError) {
+                if (pollError.message === 'Payment verification timeout') {
+                    toast.error('Payment approval timeout. Please try again.');
+                } else {
+                    toast.error(pollError.message || 'Payment failed');
+                }
+                setStep('initiate');
+            }
         } catch (error) {
             toast.error(error.response?.data?.message || 'Verification failed');
             setStep('verify');
