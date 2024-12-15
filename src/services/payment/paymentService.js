@@ -1,4 +1,4 @@
-import { api } from "./Config";
+import { api } from "../Config";
 
 // Payment Channels
 export const PAYMENT_CHANNELS = {
@@ -44,9 +44,9 @@ export const verifyPayment = async (externalRef, otpCode) => {
 export const checkPaymentStatus = async (externalRef) => {
   try {
     const response = await api.post("/status", { externalRef });
-    
+
     // Log the full response for debugging
-    console.log('Status Response:', response.data);
+    console.log("Status Response:", response.data);
 
     // Check if the payment is successful based on paymentStatus
     const isSuccessful = response.data.data?.paymentStatus === "Successful";
@@ -56,17 +56,17 @@ export const checkPaymentStatus = async (externalRef) => {
       success: isSuccessful,
       pending: isPending,
       data: response.data.data,
-      message: response.data.message
+      message: response.data.message,
     };
   } catch (error) {
-    console.error('Payment status check error:', error);
+    console.error("Payment status check error:", error);
     // If we have a response with payment status data, use it
     if (error.response?.data?.data) {
       return {
         success: false,
         pending: false,
         data: error.response.data.data,
-        message: error.response.data.message || 'Payment check failed'
+        message: error.response.data.message || "Payment check failed",
       };
     }
     throw error;
@@ -76,39 +76,38 @@ export const checkPaymentStatus = async (externalRef) => {
 // Poll for payment status
 export const pollPaymentStatus = async (externalRef, maxAttempts = 30) => {
   let attempts = 0;
-  
+
   const checkStatus = async () => {
     try {
       if (attempts >= maxAttempts) {
-        throw new Error('Payment verification timeout');
+        throw new Error("Payment verification timeout");
       }
 
       const result = await checkPaymentStatus(externalRef);
-      console.log('Poll result:', result); // Debug log
+      console.log("Poll result:", result); // Debug log
 
       // If payment is successful
       if (result.success) {
         return result;
       }
-      
+
       // If payment failed (not pending)
       if (!result.pending) {
-        throw new Error(result.message || 'Payment failed');
+        throw new Error(result.message || "Payment failed");
       }
-      
+
       // If still pending, wait and try again
       attempts++;
-      await new Promise(resolve => setTimeout(resolve, 8000));
+      await new Promise((resolve) => setTimeout(resolve, 8000));
       return checkStatus();
-      
     } catch (error) {
-      if (error.message === 'Payment verification timeout') {
+      if (error.message === "Payment verification timeout") {
         throw error;
       }
       // For other errors, check if we should continue polling
       if (attempts < maxAttempts) {
         attempts++;
-        await new Promise(resolve => setTimeout(resolve, 8000));
+        await new Promise((resolve) => setTimeout(resolve, 8000));
         return checkStatus();
       }
       throw error;
