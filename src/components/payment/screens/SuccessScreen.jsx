@@ -4,6 +4,13 @@ import { useNavigate } from "react-router-dom";
 export const SuccessScreen = ({ transactionDetails, amount, onClose }) => {
   const navigate = useNavigate();
 
+  const handleGoHome = () => {
+    onClose?.();
+    const frontendUrl =
+      "https://delkomcharityfoundation.com/" || window.location.origin;
+    window.location.href = frontendUrl;
+  };
+
   return (
     <div className="p-6 bg-white rounded-lg text-center">
       <div className="text-green-500 mb-4">
@@ -35,9 +42,9 @@ export const SuccessScreen = ({ transactionDetails, amount, onClose }) => {
       </div>
       <div className="flex space-x-4 justify-center">
         <button
-            onClick={() => navigate('/')}
-          className="bg-dark text-white py-2 px-4 rounded-md hover:bg-darkYellow  hover:text-dark
-                    transition-colors"
+          onClick={handleGoHome}
+          className="bg-dark text-white py-2 px-4 rounded-md 
+                    hover:bg-darkYellow hover:text-dark transition-colors"
         >
           Go to Home
         </button>

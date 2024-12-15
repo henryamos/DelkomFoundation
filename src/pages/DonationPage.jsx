@@ -176,7 +176,7 @@ const DonationPage = () => {
 			</div>
 
 			{/* New Suggested Amounts Section */}
-			<div className="bg-overlay shadow-lg rounded-lg p-8 max-w-lg w-full mb-8">
+			<div className="bg-darkShade shadow-lg rounded-lg p-8 max-w-lg w-full mb-8">
 				<h2 className="text-2xl font-semibold mb-6 text-center text-white">
 					Suggested <span className="text-darkYellow">Amounts</span>
 				</h2>
@@ -199,7 +199,7 @@ const DonationPage = () => {
 			</div>
 
 			{/* Custom Donation Form */}
-			<div className="bg-overlayPrimary shadow-lg rounded-lg p-8 max-w-lg w-full">
+			<div className="bg-darkShade shadow-lg rounded-lg p-8 max-w-lg w-full">
 				<h2 className="text-2xl font-semibold mb-4 text-center text-primary">
 					Custom Donation <span className="text-darkYellow">Amount</span>
 				</h2>

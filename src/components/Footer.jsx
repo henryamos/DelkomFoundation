@@ -58,6 +58,14 @@ function Footer() {
                   </li>
                   <li>
                     <Link
+                      to="/donatePage"
+                      className="text-white hover:text-darkYellow"
+                    >
+                      Donate
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       to="/team"
                       className="text-white hover:text-darkYellow"
                     >
