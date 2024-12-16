@@ -117,12 +117,15 @@ const ContactUs = () => {
       <input
         type={type}
         name={name}
+        id={name}
         defaultValue={formRef.current[name]}
         onChange={handleChange}
         required={required}
         className={`shadow appearance-none border ${
-          errors[name] ? 'border-red-500' : ''
-        } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+          errors[name] ? 'border-red-500' : 'border-gray-300'
+        } rounded w-full py-2 px-3 text-gray-700 leading-tight
+        focus:outline-none focus:ring-2 focus:ring-darkShade focus:border-transparent
+        transition-all duration-200 ease-in-out`}
         placeholder={placeholder}
       />
       {errors[name] && (
@@ -161,12 +164,15 @@ const ContactUs = () => {
           </label>
           <textarea
             name="message"
+            id="message"
             defaultValue={formRef.current.message}
             onChange={handleChange}
             required
             className={`shadow appearance-none border ${
-              errors.message ? 'border-red-500' : ''
-            } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+              errors.message ? 'border-red-500' : 'border-gray-300'
+            } rounded w-full py-2 px-3 text-gray-700 leading-tight
+            focus:outline-none focus:ring-2 focus:ring-darkShade focus:border-transparent
+            transition-all duration-200 ease-in-out`}
             placeholder="Your Message"
             rows="4"
           />
