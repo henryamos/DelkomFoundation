@@ -16,7 +16,7 @@ const ContactUs = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   // WhatsApp configuration
-  const whatsappNumber = "+233208580176";
+  const whatsappNumber = "+233548151982";
   const whatsappMessage = "Hello, I would like to get in touch with Delkom Charity Foundation.";
 
   // Validation rules
