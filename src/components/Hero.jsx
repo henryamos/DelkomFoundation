@@ -9,29 +9,31 @@ const Hero = () => {
   const [open, setOpen] = useState(false);
 
   const variants = {
-    open: { opacity: 1, x: 0, transition: { duration: 0.3 } }, // Increase speed by setting duration to 0.3 seconds
-    closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } }, // Increase speed by setting duration to 0.3 seconds
+    open: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+    closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } },
+  };
+
+  const handleToggle = () => {
+    setOpen(!open);
   };
 
   return (
     <header className="sticky z-50 w-full p-4 text-white bg-dark shadow-md h-[80px]">
-      <div className="flex items-center justify-between w-[90%] md:w-[80%] ">
+      <div className="flex items-center justify-between w-[90%] md:w-[80%] mx-auto">
         {/* Logo */}
-        <div className="flex items-center logo ">
+        <div className="flex items-center logo">
           <img className="h-12" src={Logo} alt="Delkom's Logo" />
         </div>
         {/* Nav Links */}
-        <nav className="desktop-view">
-          {" "}
-          {/* Render desktop view without animation */}
+        <nav className="hidden lg:block">
           <ul className="flex items-center gap-6">
             {LinkData.map((link) => (
               <li className="font-nunito" key={link.id}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary   text-sm  md:primary"
-                      : "text-darkYellow hover:text-darkYellow md:text-primary"
+                      ? "text-white text-sm md:text-white"
+                      : "text-primary hover:text-darkYellow md:text-primary"
                   }
                   to={link.url}
                 >
@@ -43,35 +45,38 @@ const Hero = () => {
         </nav>
         {/* Menu Button */}
         <div className="block lg:hidden">
-          <button>
+          <button
+            onClick={handleToggle}
+            className="p-2 transition-colors duration-200"
+          >
             {open ? (
-              <HiX
-                className="close-menu"
-                onClick={() => setOpen(false)}
-                size={25}
-              />
+              <HiX className="w-6 h-6 text-white" />
             ) : (
-              <HiOutlineMenuAlt1
-                className="open-menu"
-                onClick={() => setOpen(true)}
-                size={25}
-              />
+              <HiOutlineMenuAlt1 className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile View with Framer Motion animation */}
+      {/* Mobile View */}
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="hidden mobile-view lg:block"
+            className="fixed inset-0 bg-black bg-opacity-95 z-40 lg:hidden"
             initial="closed"
             animate="open"
             exit="closed"
             variants={variants}
           >
-            <ul className="flex items-center gap-6 text-xl">
+            {/* Close Button for Mobile Menu */}
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute top-4 right-4 p-2 text-white"
+            >
+              <HiX className="w-6 h-6" />
+            </button>
+
+            <ul className="flex flex-col items-center justify-center h-full gap-6">
               {LinkData.map((link) => (
                 <li
                   className="font-nunito"
@@ -81,8 +86,8 @@ const Hero = () => {
                   <NavLink
                     className={({ isActive }) =>
                       isActive
-                        ? "text-darkYellow  md:text-primary"
-                        : "text-darkYellow hover:text-darkYellow  md:text-dark"
+                        ? "text-white text-xl"
+                        : "text-primary hover:text-darkYellow text-xl"
                     }
                     to={link.url}
                   >

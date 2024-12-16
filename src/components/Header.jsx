@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import backgroundImage from "../assets/Delkom7.jpg";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { HiOutlineMenuAlt1, HiX } from "react-icons/hi";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Define navigation links
+  // Define navigation links - maintain existing paths
   const navigationLinks = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
@@ -23,7 +23,6 @@ function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Close menu when a link is clicked
   const handleLinkClick = () => {
     setIsMenuOpen(false);
   };
@@ -38,12 +37,12 @@ function Header() {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleMenu}
-        className="md:hidden absolute top-4 right-4 z-50 p-2 rounded-lg bg-black bg-opacity-60 hover:bg-opacity-80 transition-all"
+        className="md:hidden absolute top-4 right-4 z-50 p-2"
       >
         {isMenuOpen ? (
-          <FaTimes className="h-6 w-6" />
+          <HiX className="h-6 w-6" />
         ) : (
-          <FaBars className="h-6 w-6" />
+          <HiOutlineMenuAlt1 className="h-6 w-6" />
         )}
       </button>
 
@@ -55,8 +54,8 @@ function Header() {
               to={link.path}
               className={`${
                 currentPath === link.path
-                  ? "text-darkYellow"
-                  : "text-white hover:text-darkYellow"
+                  ? "text-white"
+                  : "text-primary hover:text-darkYellow"
               } transition-colors duration-300`}
             >
               {link.label}
@@ -82,8 +81,8 @@ function Header() {
               onClick={handleLinkClick}
               className={`${
                 currentPath === link.path
-                  ? "text-darkYellow"
-                  : "text-white hover:text-darkYellow"
+                  ? "text-white"
+                  : "text-primary hover:text-darkYellow"
               } text-xl py-4 transition-colors duration-300`}
             >
               {link.label}
