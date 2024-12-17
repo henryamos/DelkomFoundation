@@ -56,39 +56,44 @@ export const initiatePayment = async (paymentData) => {
 // Payment Verification with improved error handling
 export const verifyPayment = async (externalRef, otpCode) => {
   try {
-    // Additional validation and logging
     if (!externalRef) {
-      console.error('Missing externalRef in verification request');
       throw new Error("Payment reference is required");
     }
 
-    // Format the request payload
     const payload = {
       externalRef: String(externalRef).trim(),
       otpcode: String(otpCode).trim()
     };
 
-    console.log('Verification payload:', payload);
-
     const response = await api.post("/verify", payload);
     return response.data;
   } catch (error) {
-    console.error("Verification error details:", {
-      error,
-      response: error.response?.data,
-      externalRef
-    });
+    console.error("Verification error details:", error.response?.data);
 
+    // Handle specific error codes from backend
+    if (error.response?.data?.response?.code === 'TP13') {
+      throw new Error("This verification code has expired. Please start a new payment.");
+    }
+
+    if (error.response?.data?.response?.code === 'TP15') {
+      throw new Error("Invalid verification code. Please check and try again.");
+    }
+
+    if (error.response?.data?.details) {
+      throw new Error(error.response.data.details);
+    }
+
+    // Handle validation errors
     if (error.response?.data?.errors) {
       const validationErrors = error.response.data.errors;
       const refError = validationErrors.find(err => err.path === 'externalRef');
       
       if (refError) {
-        throw new Error("Invalid or expired payment reference");
+        throw new Error("Payment session expired. Please start a new payment.");
       }
     }
 
-    throw error;
+    throw new Error(error.response?.data?.error || "Verification failed. Please try again.");
   }
 };
 
@@ -128,8 +133,8 @@ export const checkPaymentStatus = async (externalRef) => {
   }
 };
 
-// Poll for payment status with improved error handling
-export const pollPaymentStatus = async (externalRef, maxAttempts = 30) => {
+// Poll for payment status with 15 seconds timeout and 3-second intervals
+export const pollPaymentStatus = async (externalRef, maxAttempts = 5) => { // 5 attempts * 3 seconds = 15 seconds
   let attempts = 0;
 
   const checkStatus = async () => {
@@ -139,7 +144,7 @@ export const pollPaymentStatus = async (externalRef, maxAttempts = 30) => {
       }
 
       const result = await checkPaymentStatus(externalRef);
-      console.log("Poll result:", result);
+      console.log(`Poll attempt ${attempts + 1}/${maxAttempts}:`, result);
 
       if (result.success) {
         return result;
@@ -150,7 +155,7 @@ export const pollPaymentStatus = async (externalRef, maxAttempts = 30) => {
       }
 
       attempts++;
-      await new Promise((resolve) => setTimeout(resolve, 8000));
+      await new Promise((resolve) => setTimeout(resolve, 3000)); // 3 seconds interval
       return checkStatus();
     } catch (error) {
       if (error.message.includes("timeout")) {
@@ -159,11 +164,11 @@ export const pollPaymentStatus = async (externalRef, maxAttempts = 30) => {
 
       if (attempts < maxAttempts) {
         attempts++;
-        await new Promise((resolve) => setTimeout(resolve, 8000));
+        await new Promise((resolve) => setTimeout(resolve, 3000)); // 3 seconds interval
         return checkStatus();
       }
 
-      throw new Error("Payment verification failed. Please contact support if amount was deducted.");
+      throw new Error("Payment verification failed. Please try again.");
     }
   };
 

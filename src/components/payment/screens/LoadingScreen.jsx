@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export const LoadingScreen = ({ onCancel }) => {
   const [timeoutWarning, setTimeoutWarning] = useState(false);
-  const TIMEOUT_DURATION = 30000; // 30 seconds
+  const TIMEOUT_DURATION = 10000; // 10 seconds
 
   useEffect(() => {
     const timer = setTimeout(() => {

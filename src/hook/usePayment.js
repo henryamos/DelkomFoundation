@@ -59,12 +59,6 @@ export const usePayment = (initialAmount) => {
     setIsLoading(true);
 
     try {
-      // Debug log to check verification data
-      console.log("Verification attempt with:", {
-        externalRef: verificationData.externalRef,
-        otpCode: verificationData.otpCode
-      });
-
       if (!verificationData.externalRef) {
         throw new Error("Payment reference not found. Please try again");
       }
@@ -79,7 +73,7 @@ export const usePayment = (initialAmount) => {
 
       const paymentResult = await pollPaymentStatus(
         verificationData.externalRef,
-        15
+        5
       );
 
       if (paymentResult.success) {
@@ -87,7 +81,11 @@ export const usePayment = (initialAmount) => {
         toast.success(paymentResult.message || "Payment completed successfully!");
         setStep(PAYMENT_STEPS.SUCCESS);
       } else {
-        toast.error(paymentResult.message || "Payment was not completed");
+        toast.error("Payment was not completed. Please try again.");
+        setVerificationData({
+          externalRef: "",
+          otpCode: "",
+        });
         setStep(PAYMENT_STEPS.INITIATE);
       }
     } catch (error) {
@@ -95,14 +93,40 @@ export const usePayment = (initialAmount) => {
       const errorMessage = error.message || "Verification failed";
       toast.error(errorMessage);
       
-      if (errorMessage.includes("reference")) {
+      // Handle specific cases that should return to payment form
+      if (
+        errorMessage.includes("expired") ||
+        errorMessage.includes("session") ||
+        errorMessage.includes("timeout") ||
+        errorMessage.includes("failed")
+      ) {
+        // Reset verification data
+        setVerificationData({
+          externalRef: "",
+          otpCode: "",
+        });
         setStep(PAYMENT_STEPS.INITIATE);
+      } else if (errorMessage.includes("Invalid verification code")) {
+        // Stay on verification form for invalid OTP
+        setVerificationData(prev => ({
+          ...prev,
+          otpCode: "", // Clear only the OTP
+        }));
       } else {
         setStep(PAYMENT_STEPS.VERIFY);
       }
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Add a function to handle payment failure
+  const handlePaymentFailure = () => {
+    setVerificationData({
+      externalRef: "",
+      otpCode: "",
+    });
+    setStep(PAYMENT_STEPS.INITIATE);
   };
 
   return {
@@ -116,5 +140,6 @@ export const usePayment = (initialAmount) => {
     transactionDetails,
     handlePaymentSubmit,
     handleVerification,
+    handlePaymentFailure,
   };
 };
