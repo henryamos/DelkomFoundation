@@ -31,7 +31,7 @@ function Header() {
     <header
       className="bg-cover bg-center h-48 flex flex-col items-center justify-center text-white relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${backgroundImage})`,
       }}
     >
       {/* Mobile Menu Button */}

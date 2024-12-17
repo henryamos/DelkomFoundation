@@ -1,70 +1,66 @@
- 
 import backgroundImg1 from '../assets/Delkom9.jpg';
 import booking from '../assets/map_school.svg';
 import clothing from '../assets/game-icons_clothes.svg';
 import food from '../assets/fluent_food-24-filled.svg';
 
 const HumanityServiceCard = () => {
+  const services = [
+    {
+      icon: food,
+      title: "Food Support",
+      description: "Providing nutritious meals and food supplies to communities in need, ensuring no one goes hungry."
+    },
+    {
+      icon: clothing,
+      title: "Clothing Distribution",
+      description: "Distributing clothing to those in need, helping to provide dignity and protection to vulnerable individuals."
+    },
+    {
+      icon: booking,
+      title: "Educational Support",
+      description: "Supporting education initiatives and providing learning resources to children in rural areas."
+    }
+  ];
+
   return (
-    <div className="relative w-full h-screen md:h-[70vh] bg-bgDark">
+    <section className="relative w-full min-h-screen bg-bgDark">
       <img
         className="absolute inset-0 object-cover w-full h-full"
         src={backgroundImg1}
         alt="Background"
+        loading="lazy"
       />
-      <div className="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-80">
-        <h2 className="headings font-bold text-center text-white mt-8 mb-4 md:mb-14">
-          Our Services <span className="text-darkYellow"> To Humanity</span>
+      <div className="absolute inset-0 bg-darkShade opacity-80" />
+      <div className="relative z-10 w-[90%] md:w-[80%] mx-auto py-16 md:py-24">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+          Our <span className="text-darkYellow">Humanity Services</span>
         </h2>
-        <div
-          className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto space-y-6 px-4 md:flex-row md:justify-between    md:space-y-0  lg:space-x-24
-        "
-        >
-          {/* Charity for Food */}
-          <div className="flex flex-col items-center justify-center w-full md:w-1/2 ">
-            <img className="w-10 md:w-20" src={food} alt="Charity For Food" />
-            <h4 className="mt-2 mb-4 text-lg font-normal text-center text-white md:font-bold md:text-2xl">
-              Charity For Food
-            </h4>
-            <p className="text-center text-white text-sm md:text-md">
-              Our members volunteer to support and educate young children
-              residing in rural areas
-            </p>
-          </div>
-          {/* Charity for Clothes */}
-          <div className="flex flex-col items-center justify-center w-full md:w-1/2">
-            <img
-              className="w-10 md:w-20"
-              src={clothing}
-              alt="Charity For Clothes"
-            />
-            <h4 className="mt-2 mb-4 text-lg font-normal text-center text-white md:font-bold md:text-2xl">
-              Charity For Clothes
-            </h4>
-            <p className="text-center text-white text-sm md:text-md">
-              Our members volunteer to support and educate young children
-              residing in rural areas
-            </p>
-          </div>
-          {/* Charity for Education */}
-          <div className="flex flex-col items-center justify-center w-full md:w-1/2">
-            <img
-              className="w-10 md:w-20"
-              src={booking}
-              alt="Charity For Education"
-            />
-            <h4 className="mt-2 mb-4 text-lg font-normal text-center text-white md:font-bold md:text-2xl">
-              Charity For Education
-            </h4>
-            <p className="text-center text-white text-sm md:text-md">
-              Our members volunteer to support and educate young children
-              residing in rural areas
-            </p>
-          </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+          {services.map((service, index) => (
+            <div 
+              key={index}
+              className="flex flex-col items-center p-8 rounded-lg bg-dark bg-opacity-50 hover:bg-opacity-70 transition-all duration-300 h-full"
+            >
+              <div className="w-20 h-20 md:w-22 lg:w-24 md:h-22 lg:h-24 flex items-center justify-center mb-6">
+                <img 
+                  src={service.icon} 
+                  alt={service.title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4 text-center">
+                {service.title}
+              </h3>
+              <p className="text-base md:text-lg text-white text-center leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default HumanityServiceCard;
+export default HumanityServiceCard; 

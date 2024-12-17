@@ -21,30 +21,29 @@ const About = () => {
     <>
       {/* Mobile & Tablet Section */}
       <motion.section
-        className="w-full lg:hidden text-left tracking-normal text-primary flex justify-center bg-overlayPrimary"
+        className="w-full lg:hidden bg-overlayPrimary"
         initial="hidden"
         animate="visible"
         exit="exit"
         variants={variants}
         transition={{ duration: 0.5 }}
       >
-        <div className="w-[85%] lg:w-[90%]">
-          <div>
-            <h2 className="headings text-white py-10 mb-4 font-bold text-center text-nunito">
-              About <span className="text-darkYellow">Us</span>
-            </h2>
-          </div>
-          <div>
+        <div className="w-[90%] md:w-[80%] mx-auto py-12">
+          <h2 className="headings text-white mb-8 font-bold text-center text-nunito">
+            About <span className="text-darkYellow">Us</span>
+          </h2>
+          
+          <div className="w-full">
             <img
-              className="w-full object-cover max-h-[60vh] p-1 mx-auto rounded-xl"
+              className="w-full object-cover h-[300px] md:h-[400px] rounded-xl mb-8"
               src={backgroundImg1}
               alt="Delkom Charity Foundation"
             />
-            <div className="p-2 mx-auto text-xl leading-loose text-ptSans">
+            <div className="text-xl leading-relaxed text-white text-ptSans">
               {shortText}
               <span
                 onClick={handleReadMore}
-                className="cursor-pointer text-darkYellow ml-2"
+                className="cursor-pointer text-darkYellow ml-2 hover:underline"
               >
                 read more...
               </span>
@@ -55,33 +54,35 @@ const About = () => {
 
       {/* Desktop Section */}
       <motion.section
-        className="bg-primaryDark hidden lg:block w-full min-h-[600px] mx-auto px-2"
+        className="bg-overlayPrimary hidden lg:block min-h-screen"
         initial="hidden"
         animate="visible"
         exit="exit"
         variants={variants}
         transition={{ duration: 0.5 }}
       >
-        <div className="w-[80%] lg:w-[90%] lg:grid lg:grid-cols-1 xl:grid-cols-12 gap-6">
-          <div className="xl:col-span-5 lg:min-h-[600px] flex justify-center items-center">
-            <img
-              className="h-auto max-w-full mt-4 rounded-xl"
-              src={backgroundImg1}
-              alt="Delkom Charity Foundation"
-            />
-          </div>
-          <div className="xl:col-span-7 lg:min-h-[400px] flex flex-col justify-center">
-            <h2 className="text-4xl text-white font-bold text-center text-nunito">
-              About <span className="text-darkYellow">Us</span>
-            </h2>
-            <div className="mt-2 text-xl leading-relaxed text-ptSans capitalize-none text-white">
-              {shortText}
-              <span
-                onClick={handleReadMore}
-                className="cursor-pointer text-darkYellow ml-2"
-              >
-                read more...
-              </span>
+        <div className="w-[90%] md:w-[80%] mx-auto py-16">
+          <div className="grid grid-cols-12 gap-12 items-center">
+            <div className="col-span-5">
+              <img
+                className="w-full h-[600px] object-cover rounded-xl"
+                src={backgroundImg1}
+                alt="Delkom Charity Foundation"
+              />
+            </div>
+            <div className="col-span-7">
+              <h2 className="headings text-white mb-8 font-bold text-nunito">
+                About <span className="text-darkYellow">Us</span>
+              </h2>
+              <div className="text-2xl leading-relaxed text-white text-ptSans">
+                {shortText}
+                <span
+                  onClick={handleReadMore}
+                  className="cursor-pointer text-darkYellow ml-2 hover:underline"
+                >
+                  read more...
+                </span>
+              </div>
             </div>
           </div>
         </div>

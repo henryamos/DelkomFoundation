@@ -1,134 +1,123 @@
-import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoadingModal from './components/modal/LoadingModal';
-import Layout from './components/Layouts';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { lazy, Suspense, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import LoadingModal from "./components/modal/LoadingModal";
+import Layout from "./components/Layouts";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import analytics from "./services/analytic/analytics";
 
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const Activities = lazy(() => import('./pages/Activities'));
-const OurImpact = lazy(() => import('./pages/OurImpact'));
-const Team = lazy(() => import('./pages/Team'));
-const ContactUs = lazy(() => import('./pages/ContactUs'));
-const DonationPage = lazy(() => import('./pages/DonationPage'));
-const AboutDetails = lazy(() => import('./pages/AboutDetails'));
-const VolunteerPage = lazy(() => import('./pages/VolunteerPage'));
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Activities = lazy(() => import("./pages/Activities"));
+const OurImpact = lazy(() => import("./pages/OurImpact"));
+const Team = lazy(() => import("./pages/Team"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
+const DonationPage = lazy(() => import("./pages/DonationPage"));
+const AboutDetails = lazy(() => import("./pages/AboutDetails"));
+const VolunteerPage = lazy(() => import("./pages/VolunteerPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
-function App() {
-  const [loading, setLoading] = useState(true);
+const AnalyticsWrapper = ({ children }) => {
+  const location = useLocation();
 
   useEffect(() => {
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    let loadingTime = 2000;
+    analytics.pageview();
+  }, [location]);
 
-    if (connection) {
-      const effectiveType = connection.effectiveType;
-      switch (effectiveType) {
-        case 'slow-2g':
-          loadingTime = 5000;
-          break;
-        case '2g':
-          loadingTime = 4000;
-          break;
-        case '3g':
-          loadingTime = 3000;
-          break;
-        case '4g':
-          loadingTime = 2000;
-          break;
-        default:
-          loadingTime = 2000;
-      }
-    }
+  return children;
+};
 
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, loadingTime);
-
-    return () => clearTimeout(timer);
+function App() {
+  useEffect(() => {
+    analytics.init();
   }, []);
 
   return (
     <Router>
-      {loading && <LoadingModal />}
       <Suspense fallback={<LoadingModal />}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <Home />
-              </Layout>
-            }
-          />
-          <Route
-            path="/volunteer"
-            element={
-              <Layout>
-                <VolunteerPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <Layout>
-                <About />
-              </Layout>
-            }
-          />
-          <Route
-            path="/about-details"
-            element={
-              <Layout>
-                <AboutDetails />
-              </Layout>
-            }
-          />
-          <Route
-            path="/activities"
-            element={
-              <Layout>
-                <Activities />
-              </Layout>
-            }
-          />
-          <Route
-            path="/our-impact"
-            element={
-              <Layout>
-                <OurImpact />
-              </Layout>
-            }
-          />
-          <Route
-            path="/team"
-            element={
-              <Layout>
-                <Team />
-              </Layout>
-            }
-          />
-          <Route
-            path="/contact-us"
-            element={
-              <Layout>
-                <ContactUs />
-              </Layout>
-            }
-          />
-          <Route
-            path="/donatePage"
-            element={
-              <Layout>
-                <DonationPage />
-              </Layout>
-            }
-          />
-        </Routes>
-      </Suspense>{" "}
-      {/* Toast Container */}
+        <AnalyticsWrapper>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout>
+                  <Home />
+                </Layout>
+              }
+            />
+            <Route
+              path="/volunteer"
+              element={
+                <Layout>
+                  <VolunteerPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <Layout>
+                  <About />
+                </Layout>
+              }
+            />
+            <Route
+              path="/about-details"
+              element={
+                <Layout>
+                  <AboutDetails />
+                </Layout>
+              }
+            />
+            <Route
+              path="/activities"
+              element={
+                <Layout>
+                  <Activities />
+                </Layout>
+              }
+            />
+            <Route
+              path="/our-impact"
+              element={
+                <Layout>
+                  <OurImpact />
+                </Layout>
+              }
+            />
+            <Route
+              path="/team"
+              element={
+                <Layout>
+                  <Team />
+                </Layout>
+              }
+            />
+            <Route
+              path="/contact-us"
+              element={
+                <Layout>
+                  <ContactUs />
+                </Layout>
+              }
+            />
+            <Route
+              path="/donatePage"
+              element={
+                <Layout>
+                  <DonationPage />
+                </Layout>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AnalyticsWrapper>
+      </Suspense>
       <ToastContainer
         position="top-right"
         autoClose={5000}

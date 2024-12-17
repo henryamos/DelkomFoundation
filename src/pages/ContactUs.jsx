@@ -135,62 +135,66 @@ const ContactUs = () => {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-bgDark p-4">
-      <h1 className="text-3xl font-bold text-primary mb-6">
-        Contact <span className="text-darkYellow">Us </span>
-      </h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-bgDark py-12">
+      <div className="w-[90%] md:w-[80%] mx-auto">
+        <h1 className="text-3xl font-bold text-primary mb-6 text-center">
+          Contact <span className="text-darkYellow">Us</span>
+        </h1>
 
-      <button
-        onClick={handleWhatsAppClick}
-        className="flex items-center gap-2 bg-green-500 text-white py-2 px-4 rounded-lg mb-6 hover:bg-green-600 transition-colors"
-      >
-        <FaWhatsapp className="text-xl" />
-        Chat on WhatsApp
-      </button>
-
-      <form
-        id="contactForm"
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg"
-      >
-        {renderInput("text", "name", "Name", "Your Name")}
-        {renderInput("email", "email", "Email", "Your Email")}
-        {renderInput("tel", "phone", "Phone Number", "Your Phone Number", false)}
-        {renderInput("text", "subject", "Subject", "Subject")}
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
-            Message <span className="text-red-500">*</span>
-          </label>
-          <textarea
-            name="message"
-            id="message"
-            defaultValue={formRef.current.message}
-            onChange={handleChange}
-            required
-            className={`shadow appearance-none border ${
-              errors.message ? 'border-red-500' : 'border-gray-300'
-            } rounded w-full py-2 px-3 text-gray-700 leading-tight
-            focus:outline-none focus:ring-2 focus:ring-darkShade focus:border-transparent
-            transition-all duration-200 ease-in-out`}
-            placeholder="Your Message"
-            rows="4"
-          />
-          {errors.message && (
-            <p className="text-red-500 text-xs italic mt-1">{errors.message}</p>
-          )}
-        </div>
-
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col items-center">
           <button
-            type="submit"
-            disabled={isLoading}
-            className="bg-black hover:bg-gray-800 text-primary font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+            onClick={handleWhatsAppClick}
+            className="flex items-center gap-2 bg-green-500 text-white py-2 px-4 rounded-lg mb-6 hover:bg-green-600 transition-colors"
           >
-            {isLoading ? "Sending..." : "Send Message"}
+            <FaWhatsapp className="text-xl" />
+            Chat on WhatsApp
           </button>
+
+          <form
+            id="contactForm"
+            onSubmit={handleSubmit}
+            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg"
+          >
+            {renderInput("text", "name", "Name", "Your Name")}
+            {renderInput("email", "email", "Email", "Your Email")}
+            {renderInput("tel", "phone", "Phone Number", "Your Phone Number", false)}
+            {renderInput("text", "subject", "Subject", "Subject")}
+
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+                Message <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                defaultValue={formRef.current.message}
+                onChange={handleChange}
+                required
+                className={`shadow appearance-none border ${
+                  errors.message ? 'border-red-500' : 'border-gray-300'
+                } rounded w-full py-2 px-3 text-gray-700 leading-tight
+                focus:outline-none focus:ring-2 focus:ring-darkShade focus:border-transparent
+                transition-all duration-200 ease-in-out`}
+                placeholder="Your Message"
+                rows="4"
+              />
+              {errors.message && (
+                <p className="text-red-500 text-xs italic mt-1">{errors.message}</p>
+              )}
+            </div>
+
+            <div className="flex items-center justify-between">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="bg-black hover:bg-gray-800 text-primary font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+              >
+                {isLoading ? "Sending..." : "Send Message"}
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

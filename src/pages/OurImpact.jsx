@@ -3,13 +3,11 @@ import ImpactStats from './ImpactStats';
 
 const OurImpact = () => {
   return (
-    <section className='   '>
-
+    <section className="w-full">
       <HumanityServiceCard />
-      <ImpactStats/>
+      <ImpactStats />
     </section>
-    
-  )
-}
+  );
+};
 
 export default OurImpact;
